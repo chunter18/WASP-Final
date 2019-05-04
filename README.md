@@ -25,13 +25,27 @@ In this repository you will find our teams final platform code, the board files,
 
 ## Evaluation Instuctions
 
+For these instructions, we will assume you are famiair with the WICED (Wireless Internet Connectivity for Embedded Devices) software. If you arent, please head over to https://www.cypress.com/products/wiced-software and download WICED studio. We are using version 6.2 for all of our WASP builds, but any version ^ or greater should work.
 
+To start, clone this repository and place it into your WICED studio directory. On windows, the default directory is Documents\WICED-Studio-6.2\43xxx_Wi-Fi\apps. 
 
-assume familar with wiced - using v 6.2?
-change wwd_wifi to included versions
-build ota2 extrct
-change battery size, server addr
-build wasp
+Next, we need to modify a few of the base WICED files.
+1. First we need to modify wwd_wifi. WASP adds a function to dissasociate with the wifi network to make changing the netowork dynamically easy - the file is otherwise unchanged, so replacing the files wont break any other builds. To do this, replace the wwd_wifi.c in WICED-Studio-6.2\43xxx_Wi-Fi\WICED\WWD\internal\ with the file in the cloned wwd folder, and replace the wwd_wifi.h file in WICED-Studio-6.2\43xxx_Wi-Fi\WICED\WWD\include\ folder.
+2. Navigate to https://community.cypress.com/docs/DOC-16139 and follow the steps in the attached document to add the quicksilver platform to the OTA2 libraries. NOTE: it is not necessary to edit the Quicksilver platform.c/.h files for our use case. Hopefully in future versions of WICED these changes will be merged into WICED, so if you notice thats the case you can safely ignore this step. 
+3. Edit the OPENOCD
+
+Next, we need to build the OTA2 extract application that WASPs OTA system relies on. To do so, simple place this make target into your makefiles pane `snip.ota2_extract-Quicksilver_EVL` and double click to build it. This app doesnt need to be downloaded, but it is a prerequsite to building the main app.
+
+Our final step before building is to change some of the WASP defualts to better match your test case.
+1. Change the battery capacity in headers/WASP_i2c.h to match your battery of choice. Many popular battery sizes are included, so you may just comment out all but the correct one. NOTE: WASP expects a single celled LiPo battery.
+2. Change the server IP address to match you own in headers/wasp_network_global.h
+3. Change the wifi networking in wifi_config_dct.c to match your own.
+
+You are no finally ready to build the WASP app! To do so, place the following make target into your list `WASP.wasp_main-Quicksilver_EVL JTAG=jlink ota2_image download_apps download run` and run it. This will build and download the app onto the WASP board for evaluation.
+
+To see the platform run (connect the UART, run the server)
+
+troubleshooting
+-extract isnt built
 
 ota instrs
-see mongo
