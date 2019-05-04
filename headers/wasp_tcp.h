@@ -1,0 +1,38 @@
+#define TCP_SERVER_PORT                   50005
+#define TCP_CLIENT_CONNECT_TIMEOUT        500
+#define TCP_CLIENT_RECEIVE_TIMEOUT        300
+#define TCP_CONNECTION_NUMBER_OF_RETRIES  30
+#define TCP_PACKET_MAX_DATA_LENGTH        30 //why
+
+typedef struct
+{
+    uint8_t mac[6];
+    uint8_t battery_level;
+    uint16_t test_codes;
+    uint8_t version_major;
+    uint8_t version_minor;
+}init_packet_t;
+
+typedef struct
+{
+        uint8_t fetch_update_command;
+        uint8_t send_to_hibernate;
+        uint8_t switch_network;
+        uint8_t test_begin;
+        uint8_t init_self_test_proc;
+        uint8_t wireless; //placeholder
+        uint16_t port;
+}init_response_t; //response message to client device registration
+
+typedef struct
+{
+    uint8_t diagnostic_codes[4];
+    uint8_t extras[4]; //not sure what we need yet
+}control_ack_t;
+
+extern wiced_tcp_socket_t  tcp_client_socket;
+
+wiced_result_t tcp_init(void);
+wiced_mac_t get_mac(void);
+wiced_result_t tcp_connect(void);
+init_response_t register_with_server(init_packet_t send_packet);
