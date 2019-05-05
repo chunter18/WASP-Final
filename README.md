@@ -32,7 +32,10 @@ To start, clone this repository and place it into your WICED studio directory. O
 Next, we need to modify a few of the base WICED files.
 1. First we need to modify wwd_wifi. WASP adds a function to dissasociate with the wifi network to make changing the netowork dynamically easy - the file is otherwise unchanged, so replacing the files wont break any other builds. To do this, replace the wwd_wifi.c in WICED-Studio-6.2\43xxx_Wi-Fi\WICED\WWD\internal\ with the file in the cloned wwd folder, and replace the wwd_wifi.h file in WICED-Studio-6.2\43xxx_Wi-Fi\WICED\WWD\include\ folder.
 2. Navigate to https://community.cypress.com/docs/DOC-16139 and follow the steps in the attached document to add the quicksilver platform to the OTA2 libraries. NOTE: it is not necessary to edit the Quicksilver platform.c/.h files for our use case. Hopefully in future versions of WICED these changes will be merged into WICED, so if you notice thats the case you can safely ignore this step. 
-3. Edit the OPENOCD
+3. We will also need to modiy the SPI bitbang code to support MOSI idle high for the ADX4008 ADC. Replace 43xxx_Wi-Fi\WICED\platform\MCU\BCM4390x\peripherals\platform_spi_i2c.c with the one from the repo. 
+4. For the final edit, we will need to edit the OpenOCD file for the CYW so that we can use the SEGGER J-link as our JTAG programmer. Replace BCM4390x.cfg with the one from this repo in 43xxx_Wi-Fi\tools\OpenOCD. 
+
+To use the SEGGER J-link as your JTAG programmer, you will also need to follow the instructions at https://community.cypress.com/community/wiced-wifi/wiced-wifi-forums/blog/2018/03/19/downloading-and-debugging-cyw43907-using-jlink-segger. NOTE: this link does not include any instructions to install the j-link drivers - please do this as well.
 
 Next, we need to build the OTA2 extract application that WASPs OTA system relies on. To do so, simple place this make target into your makefiles pane `snip.ota2_extract-Quicksilver_EVL` and double click to build it. This app doesnt need to be downloaded, but it is a prerequsite to building the main app.
 
@@ -43,9 +46,21 @@ Our final step before building is to change some of the WASP defualts to better 
 
 You are no finally ready to build the WASP app! To do so, place the following make target into your list `WASP.wasp_main-Quicksilver_EVL JTAG=jlink ota2_image download_apps download run` and run it. This will build and download the app onto the WASP board for evaluation.
 
-To see the platform run (connect the UART, run the server)
+To see what the platform is running, connect any UART to USB device to the WASP board UART headers, and open the associated com port. the WASP app prints some various information to the console, which can be useful for debugging.
+
+In addition to this, the WASP server will need to be running in order to see the full functionality of the test app (otherwise the board will stop after failing to connect over TCP). To build the server, cd into the server directory of the repo and run make. The server will then be ready to run 
 
 troubleshooting
--extract isnt built
+1. Check that the OTA extract was built successfully
+2. Check that the built server IP matches the actual IP of the server on the local network. 
+3. Feel free to contact me for any other issues you may face. 
 
-ota instrs
+# Evaluating the OTA functionality
+
+To use the OTA function of the WASP board, you will need to follow a few additional steps.
+
+1. First, you will need to build your new application to be loaded. To do so, simply add ota2_image to your makefile while removing any of the download commands like so: `WASP.wasp_main-Quicksilver_EVL ota2_image`. This will build the the file `OTA2_image_file.bin` in the build/WASP.wasp_main-Quicksilver_EVL/ directory. This file includes all of the pieces necessary for the full app in a single file (bootloader, filesystem, apps code, dct, etc)
+2. Place the included mongoose HTTP server and OTA image file together in the same directory on the server and run the mongoose server.
+3. Make sure the OTA flag is set by the TCP portion of the server - TODO
+4. Watch it update! you may wish to connect to the WASP board via UART to watch the download progress. The log level has been set to it max allowed level so the UART will be printing a lot of data. You should see the download complete, the board restart, extract the new file, and finllay run the newly updated application.
+
