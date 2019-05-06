@@ -4,7 +4,7 @@
 #define SELF_TEST_LOW_BOUND 0.015
 #define SELF_TEST_HIGH_BOUND 0.03
 
-int over_range;
+extern int over_range;
 
 void over_range_isr(void* arg);
 /*
@@ -16,7 +16,7 @@ void over_range_isr(void* arg);
 void set_adxl_standby(void);
 void clear_adxl_standby(void);
 void adc_adxl_setup(void);
-inline uint16_t adc_sample(void);
+uint16_t adc_sample(void);
 wiced_result_t adc_set_high_z(void);
 wiced_result_t adc_unset_high_z(void);
 wiced_result_t adxl_self_test(void);

@@ -3,6 +3,9 @@
 #include "../headers/wasp_network_global.h"
 
 wiced_tcp_socket_t  tcp_client_socket;
+wiced_tcp_socket_t  tcp_server_socket;
+uint8_t test_concluded = 0;
+
 //making these constant so we dont need to calc them each time
 size_t macsize = 6;     //sizeof(init_packet_t.mac);
 size_t battsize = 1;    //sizeof(init_packet_t.battery_level);
@@ -23,6 +26,87 @@ wiced_result_t tcp_init(void)
     /* Bind to the socket */
     wiced_tcp_bind( &tcp_client_socket, TCP_SERVER_PORT );
 
+    return WICED_SUCCESS;
+}
+
+wiced_result_t tcp_server_start_async(void)
+{
+    wiced_result_t result;
+    if ( wiced_tcp_create_socket( &tcp_server_socket, WICED_AP_INTERFACE ) != WICED_SUCCESS )
+    {
+        WPRINT_APP_INFO( ("TCP socket creation failed\r\n") );
+        return WICED_ERROR;
+    }
+
+    /* Register callbacks to handle various TCP events */
+    result = wiced_tcp_register_callbacks( &tcp_server_socket, client_connected_callback, received_data_callback, client_disconnected_callback, NULL );
+
+    if ( result != WICED_SUCCESS )
+    {
+        WPRINT_APP_INFO( ("TCP server socket initialization failed\r\n") );
+        return WICED_ERROR;
+    }
+
+    /* Start TCP server to listen for connections */
+    if ( wiced_tcp_listen( &tcp_server_socket, TCP_ASYNC_PORT ) != WICED_SUCCESS )
+    {
+        WPRINT_APP_INFO( ("TCP server socket initialization failed\r\n") );
+        wiced_tcp_delete_socket( &tcp_server_socket );
+        return WICED_ERROR;
+    }
+    return WICED_SUCCESS;
+}
+
+wiced_result_t client_connected_callback( wiced_tcp_socket_t* socket, void* arg )
+{
+   wiced_result_t      result;
+
+   UNUSED_PARAMETER( arg );
+
+   /* Accept connection request */
+   result = wiced_tcp_accept( socket );
+   return result;
+}
+wiced_result_t client_disconnected_callback( wiced_tcp_socket_t* socket, void* arg )
+{
+    UNUSED_PARAMETER( arg );
+
+    wiced_tcp_disconnect(socket);
+
+    /* Start listening on the socket again */
+    if ( wiced_tcp_listen( socket, TCP_ASYNC_PORT ) != WICED_SUCCESS )
+    {
+        WPRINT_APP_INFO( ("TCP server socket re-initialization failed\r\n") );
+        wiced_tcp_delete_socket( socket );
+        return WICED_ERROR;
+    }
+
+    return WICED_SUCCESS;
+}
+wiced_result_t received_data_callback( wiced_tcp_socket_t* socket, void* arg )
+{
+    wiced_result_t      result;
+    wiced_packet_t*     tx_packet;
+    char*               tx_data;
+    wiced_packet_t*     rx_packet = NULL;
+    char*               request;
+    uint16_t            request_length;
+    uint16_t            available_data_length;
+
+    result = wiced_tcp_receive( socket, &rx_packet, WICED_WAIT_FOREVER );
+    if ( result != WICED_SUCCESS )
+    {
+        return result;
+    }
+
+    wiced_packet_get_data( rx_packet, 0, (uint8_t**) &request, &request_length, &available_data_length );
+
+    //get data
+    //for now the data doesnt matter
+    test_concluded = 1;
+
+    /* Release a packet */
+    wiced_packet_delete( rx_packet );
     return WICED_SUCCESS;
 }
 

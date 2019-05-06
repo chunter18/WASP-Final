@@ -7,7 +7,9 @@ $(NAME)_SOURCES += src/wasp_hibernate.c
 $(NAME)_SOURCES += src/wasp_sflash_store.c
 $(NAME)_SOURCES += src/wasp_wifi_switch.c
 $(NAME)_SOURCES += src/wasp_tcp.c
+$(NAME)_SOURCES += src/wasp_udp.c
 $(NAME)_SOURCES += src/wasp_adxl.c
+$(NAME)_SOURCES += src/wasp_threads.c
 $(NAME)_SOURCES += src/ota2_base.c
 $(NAME)_SOURCES += src/ota2_helper.c
 

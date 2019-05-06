@@ -26,13 +26,21 @@ extern "C"
  * This is the default AP the device will connect to (as a client)
  */
 
+#define CLIENT_AP_SSID              "apt1308"
+#define CLIENT_AP_PASSPHRASE        "DDTC2019!"
+#define CLIENT_AP_BSS_TYPE          WICED_BSS_TYPE_INFRASTRUCTURE
+#define CLIENT_AP_SECURITY          WICED_SECURITY_WPA2_MIXED_PSK
+#define CLIENT_AP_CHANNEL           1
+#define CLIENT_AP_BAND              WICED_802_11_BAND_2_4GHZ
+
+/*
 #define CLIENT_AP_SSID              "WASP_2.4"
 #define CLIENT_AP_PASSPHRASE        "BbBR977KrhAnG33Q"
 #define CLIENT_AP_BSS_TYPE          WICED_BSS_TYPE_INFRASTRUCTURE
 #define CLIENT_AP_SECURITY          WICED_SECURITY_WPA2_MIXED_PSK
 #define CLIENT_AP_CHANNEL           1
 #define CLIENT_AP_BAND              WICED_802_11_BAND_2_4GHZ
-
+*/
 
 #define CLIENT_AP_2_SSID            "WASP_5.0"
 #define CLIENT_AP_2_PASSPHRASE      "GSf2dSaqJYFf9Akc"

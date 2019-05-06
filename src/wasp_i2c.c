@@ -119,7 +119,7 @@ wiced_result_t LTC2941_init_startup()
 
     msb = (uint8_t)((write_code & 0xFF00) >> 8);
     lsb = (uint8_t)(write_code & 0x00FF);
-    WPRINT_APP_INFO(( "16->0x%x msb->0x%x, lsb->0x%x\n",write_code, msb, lsb));
+    //WPRINT_APP_INFO(( "16->0x%x msb->0x%x, lsb->0x%x\n",write_code, msb, lsb));
 
     result = LTC2941_2reg_write(0x02, regval);
     if(result != WICED_SUCCESS)

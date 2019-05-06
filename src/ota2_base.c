@@ -80,7 +80,6 @@ wiced_result_t ota2_get_update(ota2_data_t* player);
 
 wiced_result_t my_ota2_callback(void* session_id, wiced_ota2_service_status_t status, uint32_t value, void* opaque );
 
-void ota_update(void); //top level function, only thing wasp app should call
 
 void ota_update(void)
 {

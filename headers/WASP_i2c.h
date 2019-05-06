@@ -21,7 +21,7 @@
  * a[3]     charge alert hight                      0
  * a[2]     charge alert low                    `   0
  * a[1]     vbat alert                              0
- * a[0]     undervoatge lockout alert               X
+ * a[0]     undervoltage lockout alert               X
  */
 
 /*

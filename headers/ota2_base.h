@@ -100,6 +100,7 @@ extern ota2_data_t *g_player;
 /******************************************************
  *               Function Declarations
  ******************************************************/
+void ota_update(void); //top level function, only thing wasp app should call
 
 #ifdef __cplusplus
 } /* extern "C" */
