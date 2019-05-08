@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=ADXL_STB Pin=M1-26
+Removed Pin From Net: NetName=ADXL_TEST Pin=M1-27
+Added Pin To Net: NetName=ADXL_TEST Pin=M1-26
+Added Pin To Net: NetName=ADXL_STB Pin=M1-27

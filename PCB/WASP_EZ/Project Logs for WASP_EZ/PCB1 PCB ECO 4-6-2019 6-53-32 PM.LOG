@@ -1,0 +1,3 @@
+Change Component Comment : Designator=Q1 Old Comment=SIS413DN-T1-GE3 New Comment=SiS407ADN
+Change Net Name : Old Net Name=I2C_INA_SCL New Net Name=I2C_INA_SDA
+Change Net Name : Old Net Name=I2C_INA_SDA New Net Name=I2C_INA_SCL

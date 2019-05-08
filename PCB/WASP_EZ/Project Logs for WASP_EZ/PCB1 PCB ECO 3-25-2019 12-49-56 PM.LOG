@@ -1,0 +1,134 @@
+Added Component: Designator=DS1(KING-LED0603-25-GREEN_V)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.kingbrightusa.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.kingbrightusa.com/images/catalog/SPEC/APG1608CGKC-T.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "Rev. 5B, 10/2012"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Forward Current"; Value = "30 mA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "2-Pin SMT LED, 1.6 x 0.8 mm Body, 0.25mm Thickness"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "LED0603-25-GREEN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageVersion"; Value = "Rev. 5B, 10/2012"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packing"; Value = "Reel"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "APG1608CGKC/T"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power Dissipation"; Value = "78 mW"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Reverse Voltage"; Value = "5 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Storage Temperature"; Value = "-40 to 85 degC"; VariantName = "[No Variations]"
+Added Component: Designator=DS2(KING-LED0603-25-RED_V)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.kingbrightusa.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.kingbrightusa.com/images/catalog/SPEC/APG1608SURKC-T.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3Description"; Value = "Package Specification"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3URL"; Value = "http://www.kingbrightusa.com/images/catalog/SPEC/APG1608SURKC-T.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "Rev. V.5A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Dice"; Value = "Hyper Red (AlGaInP)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Forward Voltage"; Value = "2 to 2.5 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "IR (Max)"; Value = "10 uA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Lens Type"; Value = "Water Clear"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Luminous Intensity mcd @ 20 mA (Min.)"; Value = "55"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Luminous Intensity mcd @ 20 mA (Typ.)"; Value = "110"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Kingbright"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Operating Temperature"; Value = "-40 to 85 degC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "2-Pin SMT, Body 1.6 x 0.8 mm, 0.28mm Thickness, Red"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "LED0603-25-RED"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageVersion"; Value = "Rev. V.5A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packing"; Value = "Tape and Reel"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "APG1608SURKC/T"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS"; Value = "TRUE"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Viewing Angle"; Value = "120"; VariantName = "[No Variations]"
+Added Component: Designator=Q2(ONSC-SOT-963-6-527AD-01_V)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Channel Polarity"; Value = "N Channel"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Ciss Typ (pF)"; Value = "12.5"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.onsemi.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.onsemi.cn/pub_link/Collateral/NTUD3170NZ-D.PDF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3Description"; Value = "Package Specification"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3URL"; Value = "http://www.onsemi.cn/pub_link/Collateral/527AD.PDF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Configuration"; Value = "Dual"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Coss Typ (pF)"; Value = "3.6"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Crss Typ (pF)"; Value = "2.6"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "Rev. 0"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ID Max (A)"; Value = "0.22"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "On Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "6-Pin Small Outline Transistor, Body 1 x 0.8 mm, Pitch 0.35 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "SOT-963-6-527AD-01"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Type"; Value = "SOT-963"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageVersion"; Value = "Rev. E, 02/2010"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packing"; Value = "Tape and Reel"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "NTUD3170NZT5G"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS"; Value = "Pb-Free"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "V(BR)DSS Min (V)"; Value = "20"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VGS(th) Max (V)"; Value = "1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "VGS Max (V)"; Value = "8"; VariantName = "[No Variations]"
+Added Component: Designator=R23(RESC0402(1005)_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.063 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "130.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R24(RESC0402(1005)_L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.063 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100000.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R25(RESC0402(1005)_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.063 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "130.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R26(RESC0402(1005)_L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.063 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100000.00 Ohm"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=PP3V3 Pin=DS1-1
+Added Pin To Net: NetName=PP3V3 Pin=DS2-1
+Added Pin To Net: NetName=GND Pin=Q2-1
+Added Pin To Net: NetName=GND Pin=Q2-4
+Added Pin To Net: NetName=GND Pin=R24-1
+Added Pin To Net: NetName=GND Pin=R26-1
+Added Pin To Net: NetName=LED_GRN Pin=M1-46
+Added Pin To Net: NetName=LED_GRN Pin=Q2-2
+Added Pin To Net: NetName=LED_GRN Pin=R24-2
+Added Net: Name=LED_GRN
+Added Pin To Net: NetName=LED_RED Pin=M1-45
+Added Pin To Net: NetName=LED_RED Pin=Q2-5
+Added Pin To Net: NetName=LED_RED Pin=R26-2
+Added Net: Name=LED_RED
+Added Pin To Net: NetName=LEDG_D Pin=Q2-6
+Added Pin To Net: NetName=LEDG_D Pin=R23-1
+Added Net: Name=LEDG_D
+Added Pin To Net: NetName=LEDG_R Pin=DS1-2
+Added Pin To Net: NetName=LEDG_R Pin=R23-2
+Added Net: Name=LEDG_R
+Added Pin To Net: NetName=LEDR_D Pin=Q2-3
+Added Pin To Net: NetName=LEDR_D Pin=R25-1
+Added Net: Name=LEDR_D
+Added Pin To Net: NetName=LEDR_R Pin=DS2-2
+Added Pin To Net: NetName=LEDR_R Pin=R25-2
+Added Net: Name=LEDR_R
+Added Member To Class: ClassName=CYW43907 Member=Component DS1 APG1608CGKC/T
+Added Member To Class: ClassName=CYW43907 Member=Component DS2 APG1608SURKC/T
+Added Member To Class: ClassName=CYW43907 Member=Component Q2 NTUD3170NZT5G
+Added Member To Class: ClassName=CYW43907 Member=Component R23 130R 5% 
+Added Member To Class: ClassName=CYW43907 Member=Component R24 100K 5% 0402(1005)
+Added Member To Class: ClassName=CYW43907 Member=Component R25 130R 5% 
+Added Member To Class: ClassName=CYW43907 Member=Component R26 100K 5% 0402(1005)

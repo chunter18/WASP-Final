@@ -1,0 +1,3 @@
+Change Component Designator: OldDesignator=GND NewDesignator=TP13
+Change Component Designator: OldDesignator=MISO NewDesignator=TP30
+Change Component Designator: OldDesignator=VBAT NewDesignator=TP3

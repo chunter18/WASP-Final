@@ -1,0 +1,14 @@
+Change Component Footprint: Designator=C22 Old Footprint=CAPC0603(1608)100_L New Footprint=CAPC0402(1005)60_L
+Change Component Comment : Designator=C22 Old Comment=2.2uF 10V New Comment=CAP 2.2uF 6.3V 0402(1005)
+Change Component Designator: OldDesignator=GND NewDesignator=TP13
+Change Component Designator: OldDesignator=MISO NewDesignator=TP30
+Change Component Designator: OldDesignator=VBAT NewDesignator=TP3
+Change component parameters: Designator = "C22"; Footprint = "CAPC0402(1005)60_L"; UniqueID = "\MKNKXNHL"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Thickness"; Value = "0.6 mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = "±20%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "2.2uF"; VariantName = "[No Variations]"

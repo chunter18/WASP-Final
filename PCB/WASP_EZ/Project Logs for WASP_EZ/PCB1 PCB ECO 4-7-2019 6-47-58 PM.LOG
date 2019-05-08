@@ -1,0 +1,30 @@
+Added Component: Designator=TP39(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP40(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP41(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP42(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP43(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP44(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=Debug Member=Component TP39 TP-SM-C-100
+Added Member To Class: ClassName=Debug Member=Component TP40 TP-SM-C-100
+Added Member To Class: ClassName=Debug Member=Component TP41 TP-SM-C-100
+Added Member To Class: ClassName=Debug Member=Component TP42 TP-SM-C-100
+Added Member To Class: ClassName=Debug Member=Component TP43 TP-SM-C-100
+Added Member To Class: ClassName=Debug Member=Component TP44 TP-SM-C-100

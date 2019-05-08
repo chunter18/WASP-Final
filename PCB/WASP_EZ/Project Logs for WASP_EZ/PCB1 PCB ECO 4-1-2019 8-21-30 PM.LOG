@@ -1,0 +1,36 @@
+Removed Pin From Net: NetName=PP1V8_ADC Pin=C17-2
+Removed Pin From Net: NetName=ADXL_TEST Pin=M1-28
+Removed Pin From Net: NetName=ADXL_OR Pin=M1-31
+Removed Pin From Net: NetName=PP1V8_EN Pin=R27-1
+Removed Pin From Net: NetName=PP3V7 Pin=R27-2
+Removed Pin From Net: NetName=PP1V8_ADC Pin=U6-2
+Added Component: Designator=R28(RESC0402(1005)_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R29(RESC0402(1005)_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.00 Ohm"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=ADXL_TEST Pin=M1-27
+Added Pin To Net: NetName=ADXL_OR Pin=M1-41
+Added Pin To Net: NetName=PP3V7 Pin=R27-1
+Added Pin To Net: NetName=PP1V8_EN Pin=R27-2
+Added Pin To Net: NetName=PP1V8_EN Pin=R28-1
+Added Pin To Net: NetName=GND Pin=R28-2
+Added Pin To Net: NetName=PP1V8_ADC Pin=R29-2
+Added Pin To Net: NetName=PP3V7 Pin=U9-4
+Added Pin To Net: NetName=PP1V8_ADC_R Pin=C17-2
+Added Pin To Net: NetName=PP1V8_ADC_R Pin=R29-1
+Added Pin To Net: NetName=PP1V8_ADC_R Pin=U6-2
+Added Net: Name=PP1V8_ADC_R
+Added Member To Class: ClassName=ADC - AD4008 Member=Component R28 Jumper 0402(1005)
+Added Member To Class: ClassName=ADC - AD4008 Member=Component R29 Jumper 0402(1005)

@@ -1,0 +1,75 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\Daniel Webber\Desktop\WASP_HW_REV_1\WASP_EZ\PCB1.PcbDoc
+Date     : 5/7/2019
+Time     : 9:03:29 PM
+
+Processing Rule : Clearance Constraint (Gap=0.3mm) (InNamedPolygon('GND_L01_P056')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.3mm) (InNamedPolygon('GND_L04_P054')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.3mm) (InNamedPolygon('GND_L03_P053')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.127mm) (InNetClass('All Nets')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.254mm) (InNamedPolygon('Layer 1-PP3V7')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=5mm) (InNamedPolygon('GND_L01_P056')),((InComponent('TP42') OR InComponent('TP43') OR InComponent('TP44')))
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.4mm) (InComponent('TP39') or InComponent('TP40')  or InComponent('TP41')  or InComponent('TP42') or InComponent('TP43')  or InComponent('TP44')),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=Yes) (InNet('PPVBAT_GAUGE_CONN')),(InNet('PPVBAT_GAUGE_CONN'))
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=Yes) (InNet('PPVBAT_CONN')),(InNet('PPVBAT_CONN'))
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.127mm) (Max=3.81mm) (Preferred=0.254mm) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.381mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Minimum Annular Ring (Minimum=0.152mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.152mm) (Max=6.274mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.102mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.02mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=0.1mm) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+
+Violations Detected : 0
+Waived Violations : 0
+Time Elapsed        : 00:00:01

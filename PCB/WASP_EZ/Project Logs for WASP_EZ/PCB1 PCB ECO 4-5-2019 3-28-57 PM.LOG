@@ -1,0 +1,15 @@
+Added Component: Designator=U4(CP_32_26)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "Value"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=PP3V3_ADXL Pin=U4-12
+Added Pin To Net: NetName=GND Pin=U4-13
+Added Pin To Net: NetName=GND Pin=U4-14
+Added Pin To Net: NetName=ADXL_STB Pin=U4-15
+Added Pin To Net: NetName=ADXL_TEST Pin=U4-16
+Added Pin To Net: NetName=ADXL_OR Pin=U4-20
+Added Pin To Net: NetName=GND Pin=U4-27
+Added Pin To Net: NetName=GND Pin=U4-28
+Added Pin To Net: NetName=ADXL_R Pin=U4-30
+Added Pin To Net: NetName=GND Pin=U4-33

@@ -1,0 +1,16 @@
+Added Component: Designator=TP35(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP36(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=TP_PINE Pin=M1-16
+Added Pin To Net: NetName=TP_PINE Pin=TP35-1
+Added Net: Name=TP_PINE
+Added Pin To Net: NetName=TP_PINF Pin=M1-17
+Added Pin To Net: NetName=TP_PINF Pin=TP36-1
+Added Net: Name=TP_PINF
+Added Member To Class: ClassName=CYW43907 Member=Component TP35 TP-SM-C-100
+Added Member To Class: ClassName=CYW43907 Member=Component TP36 TP-SM-C-100

@@ -1,0 +1,3 @@
+Change Component Comment : Designator=DS1 Old Comment=APG1608CGKC/T New Comment=KING-LED_GREEN_A1K2-2
+Change component parameters: Designator = "DS1"; Footprint = "KING-LED0603-25-GREEN_V"; UniqueID = "\IFXIVRQT"
+Change component parameters. Clean all parameters for all variants

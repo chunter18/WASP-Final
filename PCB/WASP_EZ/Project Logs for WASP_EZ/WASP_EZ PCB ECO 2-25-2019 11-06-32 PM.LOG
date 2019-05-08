@@ -1,0 +1,1301 @@
+Added Component: Designator=C1(CAPC0603(1608)100_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1608"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "1 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±20%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Added Component: Designator=C2(CAPC0603(1608)100_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1608"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "1 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±20%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Added Component: Designator=C3(CAPC0402(1005)60_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "0.6 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C4(CAP 0402/1005)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.murata.com/~/media/webrenewal/support/library/catalog/products/capacitor/mlcc/c02e.ashx"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Digi-Key listing"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://digikey.com/product-detail/en/GRM155R70J104KA01D/490-6319-2-ND/2610876"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Device Package"; Value = "0402 (1005 Metric)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Murata Electronics North America"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartId"; Value = "4880"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "GRM155R70J104KA01D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.006"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "490-6319-2-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "TemperatureCoefficient"; Value = "X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "TemperatureRange"; Value = "-55C ~ 125C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "-"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.1uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "6.3V"; VariantName = "[No Variations]"
+Added Component: Designator=C5(CAPC0603(1608)100_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1608"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "1 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±20%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Added Component: Designator=C6(CAPC0603(1608)100_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1608"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "1 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±20%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Added Component: Designator=C7(CAPC0603(1608)100_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1608"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "1 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±20%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Added Component: Designator=C8(CAPC0603(1608)100_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1608"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "1 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±20%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Added Component: Designator=C9(CAPC0603(1608)100_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1608"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "1 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±20%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Added Component: Designator=C10(CAPC0402(1005)60_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "0.6 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C11(CAPC0402(1005)60_L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "0.6 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±20%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "2.2uF"; VariantName = "[No Variations]"
+Added Component: Designator=C12(CAPC1005X55X25LL05T10)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Capacitance"; Value = "10000pF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case Size/Dimension"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet URL"; Value = "http://psearch.en.murata.com/capacitor/product/GRM155R71C103KA01%23.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "06/2016"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Dielectric"; Value = "X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Murata"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.murata.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "SurfaceMount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Description"; Value = "2-Pin Surface Mount Device, Body 1 x 0.5 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Reference"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "16V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance (%)"; Value = "±10%"; VariantName = "[No Variations]"
+Added Component: Designator=C13(CAP 0402/1005)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://product.tdk.com/info/en/catalog/datasheets/mlcc_commercial_general_en.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Digi-Key listing"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://digikey.com/product-detail/en/C1005X7R1H222K050BA/445-1257-2-ND/513723"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Device Package"; Value = "0402 (1005 Metric)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "TDK Corporation"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartId"; Value = "3879"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "C1005X7R1H222K050BA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.006"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "445-1257-2-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "TemperatureCoefficient"; Value = "X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "TemperatureRange"; Value = "-55C ~ 125C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "-"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "2200pF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "50V"; VariantName = "[No Variations]"
+Added Component: Designator=C14(CAPC0402(1005)60_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "0.6 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "10 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "-20% to +80%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1uF"; VariantName = "[No Variations]"
+Added Component: Designator=C15(CAPC0402(1005)60_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "0.6 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C16(CAPC0603(1608)100_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1608"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "1 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±20%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Added Component: Designator=C17(CAPC0402(1005)60_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "0.6 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C18(CAPC0402(1005)60_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "0.6 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C19(CAPC0603(1608)100_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1608"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "1 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±20%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Added Component: Designator=C20(CAPC0603(1608)100_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1608"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "1 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±20%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Added Component: Designator=C21(CAPC0603(1608)100_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1608"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "1 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±20%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Added Component: Designator=C22(CAPC0402(1005)60_M)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "0.6 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±5%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10nF"; VariantName = "[No Variations]"
+Added Component: Designator=C31(CAPC0402(1005)60_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "0.6 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "10 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "-20% to +80%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1uF"; VariantName = "[No Variations]"
+Added Component: Designator=C33(CAPC0402(1005)60_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "0.6 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C34(CAPC0402(1005)60_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "0.6 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C35(CAPC0402(1005)60_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "0.6 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C36(CAPC0402(1005)60_L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "0.6 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±20%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "2.2uF"; VariantName = "[No Variations]"
+Added Component: Designator=C37(CAPC0402(1005)60_L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "0.6 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "Â±20%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "2.2uF"; VariantName = "[No Variations]"
+Added Component: Designator=L1(COIL-XFL4020_V)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = ""; Value = "XFL4020-102MEB"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case Height"; Value = "2.1mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case Length"; Value = "4.3mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case Width"; Value = "4.3mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Core Material"; Value = "Composite"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet URL"; Value = "http://www.mouser.com/ds/2/597/xfl4020-270756.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "07/2012"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Dimensions"; Value = "4.3mmWx4.3mmLx2.1mmH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Inductance"; Value = "1uH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Coilcraft"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.coilcraft.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Maximum DC Current"; Value = "11A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Maximum DC Resistance"; Value = "11.9mOhms"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "SurfaceMount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Operating Temperature Range"; Value = "-40Cto+125C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Description"; Value = "2-Pin Surface Mount Device, Body 4 x 4 mm, Pitch 2.37 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Reference"; Value = "XFL4020"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = "Reel"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Product"; Value = "PowerInductors"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS"; Value = "Details"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Self Resonant Frequency"; Value = "64MHz"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Series"; Value = "XFL4020"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Shielding"; Value = "Shielded"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Termination Style"; Value = "SMD/SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Test Frequency"; Value = "100kHz"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "20%"; VariantName = "[No Variations]"
+Added Component: Designator=M1(IMP005_EASYMODULE)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "Electric Imp"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "MOD00029"; VariantName = "[No Variations]"
+Added Component: Designator=P1(SMTC-FTSH-105-01-L-DV-K_V)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Category"; Value = "Connectors,Interconnects"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Color"; Value = "Black"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Connector Type"; Value = "Header,Unshrouded"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Finish"; Value = "Gold"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Finish Thickness"; Value = "10µin(0.25µm)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Mating Length"; Value = "0.120"(3.05mm)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Type"; Value = "MalePin"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet URL"; Value = "http://suddendocs.samtec.com/prints/ftsh-1xx-xx-xxx-dv-xxx-mkt.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "Rev. ET, 10/1995"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Family"; Value = "RectangularConnectors-Headers,MalePins"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Samtec"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.samtec.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mating Products"; Value = "SFMC-105-L2-S-D-TR-ND
+-CONN.05"SURFACE10POSSMT
+FLE-105-01-G-DV-TR-ND
+-CONNSKT1.27MM10POSDUALSMD
+FLE-105-01-G-DV-A-P-ND
+-CONNSKT1.27MM10POSDUALSMD
+FLE-105-01-G-DV-A-ND
+-CONNSKT1.27MM10POSDUALSMD
+CLP-105-02-G-D-P-TR-ND
+-CONNRCPT10POSDUAL.05"SMD
+SAM1155-05-ND
+-CONNRCPT10POSDUAL.05"SMD
+SAM1154-05-ND
+-CONNRCPT10POSDUAL.05"SMD
+SAM1153-05-ND
+-CONNRCPT10POSDUAL.05"SMD
+SAM1226-05-ND
+-CONNRCPT.05"10POSDUALSMD"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Type"; Value = "SurfaceMount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Positions"; Value = "10"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Positions Loaded"; Value = "All"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Rows"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Other Names"; Value = "Q3937619"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Description"; Value = "Male Header, Pitch 1.27 mm, 2 x 5 Position, Height 5.97 mm, Tail Length 4.32 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Reference"; Value = "FTSH-105-01-L-DV-K"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package URL"; Value = "http://suddendocs.samtec.com/prints/ftsh-1xx-xx-xxx-dv-xxx-footprint.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = "Tube"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pitch"; Value = "0.050"(1.27mm)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Product Training Modules"; Value = "Board-to-BoardConnectors"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Row Spacing"; Value = "0.050"(1.27mm)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Series"; Value = "FTSH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Standard Package"; Value = "1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Termination"; Value = "Solder"; VariantName = "[No Variations]"
+Added Component: Designator=P2(JST-S2B-PH-K-S_V)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Capacitance"; Value = "10 uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case\Package"; Value = "Radial"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.jst-mfg.com/product/pdf/eng/ePH.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "Dec-12"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Diameter"; Value = "5 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "11 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Lead Pitch"; Value = "2 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Length"; Value = "11 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Operating Temperature"; Value = "85 degC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Operating Temperature"; Value = "-40 degC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mount"; Value = "Through Hole"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Male Header, Pitch 2 mm, 1 x 2 Position, Height 4.8 mm, Tail Length 3.4 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Quantity"; Value = "200"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "S2B-PH-K-S"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = "Bulk"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pins"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Radiation Hardening"; Value = "No"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "REACH SVHC"; Value = "No SVHC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHSCompliant"; Value = "true"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "20%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage Rating"; Value = "50 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage Rating (DC)"; Value = "50 V"; VariantName = "[No Variations]"
+Added Component: Designator=P3(SMTC-PHT-104-01-X-S)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.samtec.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.samtec.com/documents/webfiles/pdf/pht.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3Description"; Value = "Package Specification"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3URL"; Value = "http://www.samtec.com/documents/webfiles/cpdf/PHT-1XX-XX-X-X-XXX-MKT.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "F-214"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Samtec"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "Through-hole"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Orientation"; Value = "Vertical"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = ".100 Press Fit Socket Assembly"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "PHT-104-01-X-S"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageVersion"; Value = "J, 9/2009"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "PHT-104-01-L-S"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pitch"; Value = "2.54 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS"; Value = "True"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Temperature Range"; Value = "-55 to 125 degC"; VariantName = "[No Variations]"
+Added Component: Designator=Q1(TRANS_SI7123DN-T1-GE3)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Vishay Siliconix"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "SI7123DN-T1-GE3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "PowerPAKÂ®-1212 Vishay Siliconix"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/SI7123DN-T1-GE3/Vishay%20Siliconix/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R1(RESC0402(1005)_L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.063 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "1 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "910000.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R2(RESC0402(1005)_L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.063 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "1 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "143000.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R3(RESC0402(1005)_M)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.063 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "47000.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R4(RESC0402(1005)_M)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.063 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "47000.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R5(RESC0402(1005)_L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.063 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100000.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R6(RESC0402(1005)_M)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.063 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "20000.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R7(RESC0402(1005)_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R8(RES 0402/1005)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF4990X+7+WW"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Digikey listing"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://digikey.com/product-detail/en/ERJ-2RKF4990X/P499LTR-ND/192384"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Device Package"; Value = "0402 (1005 Metric)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Panasonic Electronic Components"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartId"; Value = "24"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "ERJ-2RKF4990X"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PowerRating"; Value = "0.1W, 1/10W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.0043"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "P499LTR-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "TemperatureCoefficient"; Value = "100ppm/C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "TemperatureRange"; Value = "-55C ~ 155C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "1%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "Thick Film"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "499"; VariantName = "[No Variations]"
+Added Component: Designator=R9(RESC0402(1005)_L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.063 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "1 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1000.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R10(RESC0402(1005)_L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.063 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100000.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R11(RESC0402(1005)_L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.063 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100000.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R12(RESC0402(1005)_M)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.063 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "47000.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R13(RESC0402(1005)_M)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.063 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "47000.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R14(RESC0402(1005)_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R15(RESC0402(1005)_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R16(RESC0402(1005)_L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.063 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100000.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R35(RESC0402(1005)_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R36(RESC0402(1005)_L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.063 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "33000.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R37(RESC0402(1005)_L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.063 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "33000.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R38(RESC0402(1005)_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R41(RESC0402(1005)_L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.063 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100000.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R45(RESC0402(1005)_M)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.063 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "20000.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=SW1(OMRON-B3S-1000-4_V)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.omron.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.omron.com/ecb/products/pdf/en-b3s.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Plating"; Value = "Silver"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Current Rating"; Value = "50 mA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "10/2014"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "4.3 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Length"; Value = "6.6 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Omron"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Operating Temperature"; Value = "70 degC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Operating Temperature"; Value = "-25 degC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mount"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "4-Pin Surface Mount Device, Body 6.6 x 6 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Quantity"; Value = "1500"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "B3S-1000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = "Bulk"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "REACH SVHC"; Value = "No SVHC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHSCompliant"; Value = "true"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage Rating"; Value = "24 V"; VariantName = "[No Variations]"
+Added Component: Designator=SW2(OMRON-B3S-1000-4_V)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.omron.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.omron.com/ecb/products/pdf/en-b3s.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Plating"; Value = "Silver"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Current Rating"; Value = "50 mA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "10/2014"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "4.3 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Length"; Value = "6.6 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Omron"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Operating Temperature"; Value = "70 degC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Operating Temperature"; Value = "-25 degC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mount"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "4-Pin Surface Mount Device, Body 6.6 x 6 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Quantity"; Value = "1500"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "B3S-1000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = "Bulk"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "REACH SVHC"; Value = "No SVHC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHSCompliant"; Value = "true"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage Rating"; Value = "24 V"; VariantName = "[No Variations]"
+Added Component: Designator=TP1(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP2(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP3(KSTN-5012_V)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Colour"; Value = "White"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.keyelco.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.keyelco.com/product-pdf.cfm?p=1321"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Material"; Value = "Bronze"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Plating"; Value = "Silver"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "Rev. F, 12/2013"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "8.12 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Length"; Value = "11.3 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Keystone"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mount"; Value = "Through Hole"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "Through Hole"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "1-Pin Through Hole Device, Dia 3.17 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Quantity"; Value = "100"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "5012"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = "Bulk"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pins"; Value = "1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "REACH SVHC"; Value = "No SVHC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHSCompliant"; Value = "true"; VariantName = "[No Variations]"
+Added Component: Designator=TP4(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP5(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP6(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP7(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP8(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP9(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP10(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP11(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP12(KSTN-5012_V)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Colour"; Value = "White"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.keyelco.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.keyelco.com/product-pdf.cfm?p=1321"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Material"; Value = "Bronze"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contact Plating"; Value = "Silver"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "Rev. F, 12/2013"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "8.12 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Length"; Value = "11.3 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Keystone"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mount"; Value = "Through Hole"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "Through Hole"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "1-Pin Through Hole Device, Dia 3.17 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Quantity"; Value = "100"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "5012"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = "Bulk"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pins"; Value = "1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "REACH SVHC"; Value = "No SVHC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHSCompliant"; Value = "true"; VariantName = "[No Variations]"
+Added Component: Designator=TP13(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP14(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP15(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP16(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP17(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP18(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP19(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP20(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP21(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP22(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP23(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP24(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP25(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP26(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP27(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP28(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP29(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP30(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP31(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP32(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP33(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=TP34(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Component: Designator=U1(DSJ14-4000X1580TP_V)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Category"; Value = "IntegratedCircuits(ICs)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Current - Output"; Value = "3.5A(Switch)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet URL"; Value = "http://www.ti.com/general/docs/lit/getliterature.tsp?genericPartNumber=TPS63020&fileType=pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "Rev. D, 10/2015"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Family"; Value = "PMIC-VoltageRegulators-DCDCSwitchingRegulators"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Featured Product"; Value = "TPS63020Buck-BoostConverterCreateyourpowerdesignnowwithTI’sWEBENCH®Designer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "For Use With"; Value = "296-27260-ND-EVALMODFORTPS63020"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Frequency - Switching"; Value = "2.4MHz"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Function"; Value = "Step-Up/Step-Down"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Product Page"; Value = "TPS63020DSJTSpecifications"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.ti.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "SurfaceMount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Type"; Value = "SurfaceMount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Outputs"; Value = "1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Online Catalog"; Value = "Buck-BoostIC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Operating Temperature"; Value = "-40°C~85°C(TA)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Other Names"; Value = "296-27230-6"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Configuration"; Value = "Positive"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Output Type"; Value = "Adjustable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package / Case"; Value = "14-VFDFNExposedPad"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Description"; Value = "14-Pin Small Outline No-lead, Body 4 x 3 mm, Pitch 0.5 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Reference"; Value = "DSJ14-4000X1580"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Version"; Value = "4208212-3/C, 06/2011"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = "Digi-Reel®  "; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PCN Assembly/Origin"; Value = "Assembly/TestSiteAddition10/Jul/2015"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Product Training Modules"; Value = "TPS63020Overview"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Reference Design Library"; Value = "TPS63020EVM-487:3.3V@1A,1.8~5.5Vin"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Series"; Value = "-"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Standard Package"; Value = "1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Device Package"; Value = "14-VSON(4x3)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Synchronous Rectifier"; Value = "Yes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Topology"; Value = "Buck-Boost"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage - Input (Max)"; Value = "5.5V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage - Input (Min)"; Value = "1.8V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage - Output (Max)"; Value = "5.5V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage - Output (Min/Fixed)"; Value = "1.2V"; VariantName = "[No Variations]"
+Added Component: Designator=U2(LT-DCB-6_V)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Battery Chemistry"; Value = "Li-Ion, Li-Polymer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Code_JEDEC"; Value = "MO-229"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.linear.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://cds.linear.com/docs/en/datasheet/29411f.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3Description"; Value = "Package Specification"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3URL"; Value = "http://www.linear.com/docs/en/packaging/(DCB6)%20DFN%2005-08-1715%20Rev%20A.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Linear Technology"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Cells"; Value = "1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "6-Pin Plastic DFN, Body 2 x 3 mm, Pitch 0.5 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "DCB-6"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageVersion"; Value = "Rev. A, 03/2011"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packing"; Value = "Mini Tape and Reel"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "LTC2941CDCB-1#TRMPBF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS"; Value = "TRUE"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type of Charger"; Value = "Coulomb Counter"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vin Max(V)"; Value = "5.5"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vin Min(V)"; Value = "2.7"; VariantName = "[No Variations]"
+Added Component: Designator=U3(TI-DCQ6_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Accuracy(%)"; Value = "3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.ti.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.ti.com/general/docs/lit/getliterature.tsp?genericPartNumber=TPS73733&fileType=pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3Description"; Value = "Package Specification"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3URL"; Value = "http://www.ti.com/litv/pdf/mpds098c"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "SBVS067O"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Eco-Plan"; Value = "Green (RoHS & no Sb/Br)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Fixed Output Options(V)"; Value = "3.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Iout(Max)(A)"; Value = "1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Iq(Typ)(mA)"; Value = "0.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "6-Pin Plastic Small Outline, Body 3.5 x 6.5 mm, Pitch 1.27 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "DCQ6"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageVersion"; Value = "4202109/D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TPS73733DCQ"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rating"; Value = "Catalog"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SubFamily"; Value = "Single Channel LDO"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vdo(Typ)(mV)"; Value = "130"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vin(Max)(V)"; Value = "5.5"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vin(Min)(V)"; Value = "2.2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vout Adj(Max)(V)"; Value = "3.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vout Adj(Min)(V)"; Value = "3.3"; VariantName = "[No Variations]"
+Added Component: Designator=U4(CP_32_26)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "Value"; VariantName = "[No Variations]"
+Added Component: Designator=U5(LT-S8-8_L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Category"; Value = "IntegratedCircuits(ICs)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Current - Cathode"; Value = "-"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Current - Output"; Value = "100mA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Current - Quiescent"; Value = "50µA"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet URL"; Value = "http://cds.linear.com/docs/en/datasheet/1461fb.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "Rev. B, 09/2015"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Dynamic Catalog"; Value = "Series,Fixed-LinearTechnology"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Family"; Value = "PMIC-VoltageReference"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Linear Technology"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.linear.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "SurfaceMount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Type"; Value = "SurfaceMount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of Channels"; Value = "1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Operating Temperature"; Value = "-40°C~85°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package / Case"; Value = "8-SOIC(0.154",3.90mmWidth)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Description"; Value = "8-Pin Plastic Small Outline (Narrow .150 Inch), Body 4.9 x 3.9 mm, Pitch 1.27 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Reference"; Value = "S8"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package URL"; Value = "http://cds.linear.com/docs/Packaging/05081610_G_SO8.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Version"; Value = "0"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Packaging"; Value = "Tube"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Product Training Modules"; Value = "VoltageReferenceBasics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Reference Type"; Value = "Series,Precision"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Series"; Value = "-"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Standard Package"; Value = "100"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Device Package"; Value = "8-SOIC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Temperature Coefficient"; Value = "12ppm/°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "±0.08%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage - Input"; Value = "5.5V~20V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage - Output"; Value = "5V"; VariantName = "[No Variations]"
+Added Component: Designator=U6(CP_10_9)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "Value"; VariantName = "[No Variations]"
+Added Component: Designator=U9(TI-DRV6-1600X1000TP_V)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Accuracy(%)"; Value = "3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.ti.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.ti.com/general/docs/lit/getliterature.tsp?genericPartNumber=TPS780180300&fileType=pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3Description"; Value = "Package Specification"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3URL"; Value = "http://www.ti.com/litv/pdf/mpds216d"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DatasheetVersion"; Value = "SBVS083D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Eco-Plan"; Value = "Green (RoHS & no Sb/Br)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Fixed Output Options(V)"; Value = "1.8, 3.0"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Iout(Max)(A)"; Value = "0.15"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Iq(Typ)(mA)"; Value = "0.0005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "6-Pin Plastic Small Outline No-Lead, Body 2 x 2 mm, Pitch 0.65 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "DRV6-1600X1000TP"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageVersion"; Value = "4206925/E"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TPS780180300DRVR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SubFamily"; Value = "Single Channel LDO"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 2"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 3"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 4"; Value = "Mouser"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "296-29816-2-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 2"; Value = "296-29816-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 3"; Value = "296-29816-6-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 4"; Value = "595-TPS780180300DRVR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vdo(Typ)(mV)"; Value = "200"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vin(Max)(V)"; Value = "5.5"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vin(Min)(V)"; Value = "2.2"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=ADC_CNV Pin=M1-49
+Added Pin To Net: NetName=ADC_CNV Pin=TP5-1
+Added Pin To Net: NetName=ADC_CNV Pin=U6-6
+Added Net: Name=ADC_CNV
+Added Pin To Net: NetName=ADXL_AOUT Pin=C13-2
+Added Pin To Net: NetName=ADXL_AOUT Pin=R9-2
+Added Pin To Net: NetName=ADXL_AOUT Pin=U6-3
+Added Net: Name=ADXL_AOUT
+Added Pin To Net: NetName=ADXL_OR Pin=M1-31
+Added Pin To Net: NetName=ADXL_OR Pin=TP10-1
+Added Pin To Net: NetName=ADXL_OR Pin=U4-20
+Added Net: Name=ADXL_OR
+Added Pin To Net: NetName=ADXL_RC Pin=C12-2
+Added Pin To Net: NetName=ADXL_RC Pin=R8-2
+Added Pin To Net: NetName=ADXL_RC Pin=R9-1
+Added Net: Name=ADXL_RC
+Added Pin To Net: NetName=ADXL_R Pin=R8-1
+Added Pin To Net: NetName=ADXL_R Pin=U4-30
+Added Net: Name=ADXL_R
+Added Pin To Net: NetName=ADXL_STB Pin=M1-26
+Added Pin To Net: NetName=ADXL_STB Pin=R11-2
+Added Pin To Net: NetName=ADXL_STB Pin=TP7-1
+Added Pin To Net: NetName=ADXL_STB Pin=U4-15
+Added Net: Name=ADXL_STB
+Added Pin To Net: NetName=ADXL_TEST Pin=M1-28
+Added Pin To Net: NetName=ADXL_TEST Pin=R10-2
+Added Pin To Net: NetName=ADXL_TEST Pin=TP6-1
+Added Pin To Net: NetName=ADXL_TEST Pin=U4-16
+Added Net: Name=ADXL_TEST
+Added Pin To Net: NetName=BB_PS Pin=R7-2
+Added Pin To Net: NetName=BB_PS Pin=U1-13
+Added Net: Name=BB_PS
+Added Pin To Net: NetName=BB_SW1 Pin=L1-1
+Added Pin To Net: NetName=BB_SW1 Pin=U1-8
+Added Pin To Net: NetName=BB_SW1 Pin=U1-9
+Added Net: Name=BB_SW1
+Added Pin To Net: NetName=BB_SW2 Pin=L1-2
+Added Pin To Net: NetName=BB_SW2 Pin=U1-6
+Added Pin To Net: NetName=BB_SW2 Pin=U1-7
+Added Net: Name=BB_SW2
+Added Pin To Net: NetName=BB_VINA Pin=C3-2
+Added Pin To Net: NetName=BB_VINA Pin=U1-1
+Added Net: Name=BB_VINA
+Added Pin To Net: NetName=CYW_JTAG_RESET__R_L Pin=P1-9
+Added Pin To Net: NetName=CYW_JTAG_RESET__R_L Pin=R15-2
+Added Net: Name=CYW_JTAG_RESET__R_L
+Added Pin To Net: NetName=CYW_JTAG_RESET_L Pin=M1-58
+Added Pin To Net: NetName=CYW_JTAG_RESET_L Pin=R15-1
+Added Pin To Net: NetName=CYW_JTAG_RESET_L Pin=R16-1
+Added Pin To Net: NetName=CYW_JTAG_RESET_L Pin=TP34-1
+Added Net: Name=CYW_JTAG_RESET_L
+Added Pin To Net: NetName=CYW_JTAG_TCK Pin=M1-59
+Added Pin To Net: NetName=CYW_JTAG_TCK Pin=P1-4
+Added Pin To Net: NetName=CYW_JTAG_TCK Pin=TP30-1
+Added Net: Name=CYW_JTAG_TCK
+Added Pin To Net: NetName=CYW_JTAG_TDI Pin=M1-60
+Added Pin To Net: NetName=CYW_JTAG_TDI Pin=P1-8
+Added Pin To Net: NetName=CYW_JTAG_TDI Pin=TP32-1
+Added Net: Name=CYW_JTAG_TDI
+Added Pin To Net: NetName=CYW_JTAG_TDO Pin=M1-57
+Added Pin To Net: NetName=CYW_JTAG_TDO Pin=P1-6
+Added Pin To Net: NetName=CYW_JTAG_TDO Pin=TP31-1
+Added Net: Name=CYW_JTAG_TDO
+Added Pin To Net: NetName=CYW_JTAG_TMS Pin=M1-61
+Added Pin To Net: NetName=CYW_JTAG_TMS Pin=P1-2
+Added Pin To Net: NetName=CYW_JTAG_TMS Pin=TP24-1
+Added Net: Name=CYW_JTAG_TMS
+Added Pin To Net: NetName=CYW_PWR_DWN Pin=C34-2
+Added Pin To Net: NetName=CYW_PWR_DWN Pin=M1-23
+Added Pin To Net: NetName=CYW_PWR_DWN Pin=R37-1
+Added Pin To Net: NetName=CYW_PWR_DWN Pin=SW2-3
+Added Pin To Net: NetName=CYW_PWR_DWN Pin=SW2-4
+Added Pin To Net: NetName=CYW_PWR_DWN Pin=TP21-1
+Added Net: Name=CYW_PWR_DWN
+Added Pin To Net: NetName=CYW_RESET_L Pin=C33-2
+Added Pin To Net: NetName=CYW_RESET_L Pin=M1-62
+Added Pin To Net: NetName=CYW_RESET_L Pin=R14-1
+Added Pin To Net: NetName=CYW_RESET_L Pin=R36-1
+Added Pin To Net: NetName=CYW_RESET_L Pin=SW1-3
+Added Pin To Net: NetName=CYW_RESET_L Pin=SW1-4
+Added Pin To Net: NetName=CYW_RESET_L Pin=TP20-1
+Added Pin To Net: NetName=CYW_RESET_L Pin=TP33-1
+Added Net: Name=CYW_RESET_L
+Added Pin To Net: NetName=CYW_RESET_R_L Pin=P1-10
+Added Pin To Net: NetName=CYW_RESET_R_L Pin=R14-2
+Added Net: Name=CYW_RESET_R_L
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=GND Pin=C3-1
+Added Pin To Net: NetName=GND Pin=C4-1
+Added Pin To Net: NetName=GND Pin=C5-1
+Added Pin To Net: NetName=GND Pin=C6-1
+Added Pin To Net: NetName=GND Pin=C7-1
+Added Pin To Net: NetName=GND Pin=C8-1
+Added Pin To Net: NetName=GND Pin=C9-1
+Added Pin To Net: NetName=GND Pin=C10-1
+Added Pin To Net: NetName=GND Pin=C11-1
+Added Pin To Net: NetName=GND Pin=C12-1
+Added Pin To Net: NetName=GND Pin=C13-1
+Added Pin To Net: NetName=GND Pin=C14-1
+Added Pin To Net: NetName=GND Pin=C15-1
+Added Pin To Net: NetName=GND Pin=C16-1
+Added Pin To Net: NetName=GND Pin=C17-1
+Added Pin To Net: NetName=GND Pin=C18-1
+Added Pin To Net: NetName=GND Pin=C19-1
+Added Pin To Net: NetName=GND Pin=C20-1
+Added Pin To Net: NetName=GND Pin=C21-2
+Added Pin To Net: NetName=GND Pin=C22-1
+Added Pin To Net: NetName=GND Pin=C31-1
+Added Pin To Net: NetName=GND Pin=C33-1
+Added Pin To Net: NetName=GND Pin=C34-1
+Added Pin To Net: NetName=GND Pin=C35-1
+Added Pin To Net: NetName=GND Pin=C36-1
+Added Pin To Net: NetName=GND Pin=C37-1
+Added Pin To Net: NetName=GND Pin=M1-1
+Added Pin To Net: NetName=GND Pin=M1-5
+Added Pin To Net: NetName=GND Pin=M1-18
+Added Pin To Net: NetName=GND Pin=M1-34
+Added Pin To Net: NetName=GND Pin=M1-44
+Added Pin To Net: NetName=GND Pin=M1-56
+Added Pin To Net: NetName=GND Pin=P1-3
+Added Pin To Net: NetName=GND Pin=P1-5
+Added Pin To Net: NetName=GND Pin=P2-2
+Added Pin To Net: NetName=GND Pin=P3-4
+Added Pin To Net: NetName=GND Pin=R2-1
+Added Pin To Net: NetName=GND Pin=R5-1
+Added Pin To Net: NetName=GND Pin=R7-1
+Added Pin To Net: NetName=GND Pin=R10-1
+Added Pin To Net: NetName=GND Pin=R11-1
+Added Pin To Net: NetName=GND Pin=SW1-1
+Added Pin To Net: NetName=GND Pin=SW1-2
+Added Pin To Net: NetName=GND Pin=SW2-1
+Added Pin To Net: NetName=GND Pin=SW2-2
+Added Pin To Net: NetName=GND Pin=TP12-1
+Added Pin To Net: NetName=GND Pin=U1-2
+Added Pin To Net: NetName=GND Pin=U1-15
+Added Pin To Net: NetName=GND Pin=U2-2
+Added Pin To Net: NetName=GND Pin=U3-3
+Added Pin To Net: NetName=GND Pin=U3-6
+Added Pin To Net: NetName=GND Pin=U4-13
+Added Pin To Net: NetName=GND Pin=U4-14
+Added Pin To Net: NetName=GND Pin=U4-27
+Added Pin To Net: NetName=GND Pin=U4-28
+Added Pin To Net: NetName=GND Pin=U4-33
+Added Pin To Net: NetName=GND Pin=U5-4
+Added Pin To Net: NetName=GND Pin=U6-4
+Added Pin To Net: NetName=GND Pin=U6-5
+Added Pin To Net: NetName=GND Pin=U6-11
+Added Pin To Net: NetName=GND Pin=U9-5
+Added Pin To Net: NetName=GND Pin=U9-7
+Added Net: Name=GND
+Added Pin To Net: NetName=I2C0_SCL Pin=M1-43
+Added Pin To Net: NetName=I2C0_SCL Pin=R3-1
+Added Pin To Net: NetName=I2C0_SCL Pin=R12-1
+Added Pin To Net: NetName=I2C0_SCL Pin=U2-3
+Added Net: Name=I2C0_SCL
+Added Pin To Net: NetName=I2C0_SDA Pin=M1-42
+Added Pin To Net: NetName=I2C0_SDA Pin=R4-1
+Added Pin To Net: NetName=I2C0_SDA Pin=R13-1
+Added Pin To Net: NetName=I2C0_SDA Pin=U2-4
+Added Net: Name=I2C0_SDA
+Added Pin To Net: NetName=PP1V8_ADC Pin=C17-2
+Added Pin To Net: NetName=PP1V8_ADC Pin=C36-2
+Added Pin To Net: NetName=PP1V8_ADC Pin=C37-2
+Added Pin To Net: NetName=PP1V8_ADC Pin=TP8-1
+Added Pin To Net: NetName=PP1V8_ADC Pin=U6-2
+Added Pin To Net: NetName=PP1V8_ADC Pin=U9-1
+Added Net: Name=PP1V8_ADC
+Added Pin To Net: NetName=PP3V3_ADXL Pin=C14-2
+Added Pin To Net: NetName=PP3V3_ADXL Pin=C15-2
+Added Pin To Net: NetName=PP3V3_ADXL Pin=C16-2
+Added Pin To Net: NetName=PP3V3_ADXL Pin=C19-2
+Added Pin To Net: NetName=PP3V3_ADXL Pin=TP4-1
+Added Pin To Net: NetName=PP3V3_ADXL Pin=U4-12
+Added Pin To Net: NetName=PP3V3_ADXL Pin=U5-6
+Added Pin To Net: NetName=PP3V3_ADXL Pin=U6-1
+Added Net: Name=PP3V3_ADXL
+Added Pin To Net: NetName=PP3V3_NR Pin=C22-2
+Added Pin To Net: NetName=PP3V3_NR Pin=U3-4
+Added Net: Name=PP3V3_NR
+Added Pin To Net: NetName=PP3V3 Pin=C11-2
+Added Pin To Net: NetName=PP3V3 Pin=C18-2
+Added Pin To Net: NetName=PP3V3 Pin=C20-2
+Added Pin To Net: NetName=PP3V3 Pin=C21-1
+Added Pin To Net: NetName=PP3V3 Pin=M1-35
+Added Pin To Net: NetName=PP3V3 Pin=M1-36
+Added Pin To Net: NetName=PP3V3 Pin=P1-1
+Added Pin To Net: NetName=PP3V3 Pin=P3-1
+Added Pin To Net: NetName=PP3V3 Pin=R3-2
+Added Pin To Net: NetName=PP3V3 Pin=R4-2
+Added Pin To Net: NetName=PP3V3 Pin=R12-2
+Added Pin To Net: NetName=PP3V3 Pin=R13-2
+Added Pin To Net: NetName=PP3V3 Pin=R16-2
+Added Pin To Net: NetName=PP3V3 Pin=R36-2
+Added Pin To Net: NetName=PP3V3 Pin=R37-2
+Added Pin To Net: NetName=PP3V3 Pin=R41-2
+Added Pin To Net: NetName=PP3V3 Pin=TP13-1
+Added Pin To Net: NetName=PP3V3 Pin=U3-2
+Added Pin To Net: NetName=PP3V3 Pin=U6-10
+Added Net: Name=PP3V3
+Added Pin To Net: NetName=PP3V7_EN_R Pin=R35-2
+Added Pin To Net: NetName=PP3V7_EN_R Pin=U2-5
+Added Net: Name=PP3V7_EN_R
+Added Pin To Net: NetName=PP3V7_EN Pin=R6-1
+Added Pin To Net: NetName=PP3V7_EN Pin=R35-1
+Added Pin To Net: NetName=PP3V7_EN Pin=TP14-1
+Added Pin To Net: NetName=PP3V7_EN Pin=U1-12
+Added Net: Name=PP3V7_EN
+Added Pin To Net: NetName=PP3V7_FB Pin=R1-1
+Added Pin To Net: NetName=PP3V7_FB Pin=R2-2
+Added Pin To Net: NetName=PP3V7_FB Pin=U1-3
+Added Net: Name=PP3V7_FB
+Added Pin To Net: NetName=PP3V7_PG Pin=R45-1
+Added Pin To Net: NetName=PP3V7_PG Pin=TP1-1
+Added Pin To Net: NetName=PP3V7_PG Pin=U1-14
+Added Net: Name=PP3V7_PG
+Added Pin To Net: NetName=PP3V7_REF_R Pin=C31-2
+Added Pin To Net: NetName=PP3V7_REF_R Pin=R38-1
+Added Pin To Net: NetName=PP3V7_REF_R Pin=U5-2
+Added Pin To Net: NetName=PP3V7_REF_R Pin=U5-3
+Added Net: Name=PP3V7_REF_R
+Added Pin To Net: NetName=PP3V7 Pin=C1-2
+Added Pin To Net: NetName=PP3V7 Pin=C2-2
+Added Pin To Net: NetName=PP3V7 Pin=C5-2
+Added Pin To Net: NetName=PP3V7 Pin=C10-2
+Added Pin To Net: NetName=PP3V7 Pin=C35-2
+Added Pin To Net: NetName=PP3V7 Pin=R1-2
+Added Pin To Net: NetName=PP3V7 Pin=R38-2
+Added Pin To Net: NetName=PP3V7 Pin=R45-2
+Added Pin To Net: NetName=PP3V7 Pin=TP11-1
+Added Pin To Net: NetName=PP3V7 Pin=U1-4
+Added Pin To Net: NetName=PP3V7 Pin=U1-5
+Added Pin To Net: NetName=PP3V7 Pin=U3-1
+Added Pin To Net: NetName=PP3V7 Pin=U3-5
+Added Pin To Net: NetName=PP3V7 Pin=U9-3
+Added Pin To Net: NetName=PP3V7 Pin=U9-4
+Added Pin To Net: NetName=PP3V7 Pin=U9-6
+Added Net: Name=PP3V7
+Added Pin To Net: NetName=PPVBAT_CONN Pin=P2-1
+Added Pin To Net: NetName=PPVBAT_CONN Pin=Q1-5
+Added Pin To Net: NetName=PPVBAT_CONN Pin=Q1-6
+Added Pin To Net: NetName=PPVBAT_CONN Pin=Q1-7
+Added Pin To Net: NetName=PPVBAT_CONN Pin=Q1-8
+Added Pin To Net: NetName=PPVBAT_CONN Pin=TP3-1
+Added Net: Name=PPVBAT_CONN
+Added Pin To Net: NetName=PPVBAT_GAUGE_CONN Pin=Q1-1
+Added Pin To Net: NetName=PPVBAT_GAUGE_CONN Pin=Q1-2
+Added Pin To Net: NetName=PPVBAT_GAUGE_CONN Pin=Q1-3
+Added Pin To Net: NetName=PPVBAT_GAUGE_CONN Pin=TP2-1
+Added Pin To Net: NetName=PPVBAT_GAUGE_CONN Pin=U2-6
+Added Net: Name=PPVBAT_GAUGE_CONN
+Added Pin To Net: NetName=PPVBAT Pin=C4-2
+Added Pin To Net: NetName=PPVBAT Pin=C6-2
+Added Pin To Net: NetName=PPVBAT Pin=C7-2
+Added Pin To Net: NetName=PPVBAT Pin=C8-2
+Added Pin To Net: NetName=PPVBAT Pin=C9-2
+Added Pin To Net: NetName=PPVBAT Pin=R6-2
+Added Pin To Net: NetName=PPVBAT Pin=TP9-1
+Added Pin To Net: NetName=PPVBAT Pin=U1-10
+Added Pin To Net: NetName=PPVBAT Pin=U1-11
+Added Pin To Net: NetName=PPVBAT Pin=U2-1
+Added Net: Name=PPVBAT
+Added Pin To Net: NetName=RVP_GATE Pin=Q1-4
+Added Pin To Net: NetName=RVP_GATE Pin=R5-2
+Added Net: Name=RVP_GATE
+Added Pin To Net: NetName=SPI0_CLK Pin=M1-11
+Added Pin To Net: NetName=SPI0_CLK Pin=U6-8
+Added Net: Name=SPI0_CLK
+Added Pin To Net: NetName=SPI0_MISO Pin=M1-12
+Added Pin To Net: NetName=SPI0_MISO Pin=U6-7
+Added Net: Name=SPI0_MISO
+Added Pin To Net: NetName=SPI0_MOSI Pin=M1-9
+Added Pin To Net: NetName=SPI0_MOSI Pin=M1-10
+Added Pin To Net: NetName=SPI0_MOSI Pin=R41-1
+Added Pin To Net: NetName=SPI0_MOSI Pin=U6-9
+Added Net: Name=SPI0_MOSI
+Added Pin To Net: NetName=TP_I2C1_SCL Pin=M1-54
+Added Pin To Net: NetName=TP_I2C1_SCL Pin=TP16-1
+Added Net: Name=TP_I2C1_SCL
+Added Pin To Net: NetName=TP_I2C1_SDA Pin=M1-55
+Added Pin To Net: NetName=TP_I2C1_SDA Pin=TP15-1
+Added Net: Name=TP_I2C1_SDA
+Added Pin To Net: NetName=TP_SPI0_MISO Pin=M1-38
+Added Pin To Net: NetName=TP_SPI0_MISO Pin=TP26-1
+Added Net: Name=TP_SPI0_MISO
+Added Pin To Net: NetName=TP_SPI0_MOSI Pin=M1-37
+Added Pin To Net: NetName=TP_SPI0_MOSI Pin=TP27-1
+Added Net: Name=TP_SPI0_MOSI
+Added Pin To Net: NetName=TP_SPI_CLK Pin=M1-39
+Added Pin To Net: NetName=TP_SPI_CLK Pin=TP25-1
+Added Net: Name=TP_SPI_CLK
+Added Pin To Net: NetName=TP_SPI_CS Pin=M1-40
+Added Pin To Net: NetName=TP_SPI_CS Pin=TP23-1
+Added Net: Name=TP_SPI_CS
+Added Pin To Net: NetName=TP_UART0_CTS Pin=M1-52
+Added Pin To Net: NetName=TP_UART0_CTS Pin=TP18-1
+Added Net: Name=TP_UART0_CTS
+Added Pin To Net: NetName=TP_UART0_RTS Pin=M1-51
+Added Pin To Net: NetName=TP_UART0_RTS Pin=TP19-1
+Added Net: Name=TP_UART0_RTS
+Added Pin To Net: NetName=TP_UART0_RX Pin=M1-50
+Added Pin To Net: NetName=TP_UART0_RX Pin=TP22-1
+Added Net: Name=TP_UART0_RX
+Added Pin To Net: NetName=TP_UART0_TX Pin=M1-53
+Added Pin To Net: NetName=TP_UART0_TX Pin=TP17-1
+Added Net: Name=TP_UART0_TX
+Added Pin To Net: NetName=UART1_RX Pin=M1-21
+Added Pin To Net: NetName=UART1_RX Pin=P3-2
+Added Net: Name=UART1_RX
+Added Pin To Net: NetName=UART1_TX Pin=M1-22
+Added Pin To Net: NetName=UART1_TX Pin=P3-3
+Added Net: Name=UART1_TX
+Added Pin To Net: NetName=UART2_RX Pin=M1-25
+Added Pin To Net: NetName=UART2_RX Pin=TP29-1
+Added Net: Name=UART2_RX
+Added Pin To Net: NetName=UART2_TX Pin=M1-24
+Added Pin To Net: NetName=UART2_TX Pin=TP28-1
+Added Net: Name=UART2_TX
+Added Class: Name=ADC - AD4008
+Added Class: Name=Buck Boost
+Added Class: Name=CYW43907
+Added Class: Name=Debug
+Added Class: Name=Gas Gauge & Bat Connector
+Added Room: Name=ADC - AD4008
+Added Room: Name=CYW43907
+Added Room: Name=Debug

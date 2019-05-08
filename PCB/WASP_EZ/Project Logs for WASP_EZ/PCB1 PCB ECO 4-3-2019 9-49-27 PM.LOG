@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=U1 Old Footprint=DSJ14-4000X1580TP_V New Footprint=DSJ14-4000X1580TP_V - Cloned
+Change Component Comment : Designator=U1 Old Comment=TPS63020DSJT New Comment=TI-TPS63020DSJ14-4000X1580TP
+Change component parameters: Designator = "U1"; Footprint = "DSJ14-4000X1580TP_V - Cloned"; UniqueID = "\RBRLNFUU"
+Change component parameters. Clean all parameters for all variants

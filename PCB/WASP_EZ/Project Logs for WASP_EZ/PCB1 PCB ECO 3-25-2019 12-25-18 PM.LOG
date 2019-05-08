@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=SPI0_MOSI Pin=M1-10
+Removed Pin From Net: NetName=PPVBAT_CONN Pin=TP3-1
+Change Component Comment : Designator=R15 Old Comment=10R 5%  New Comment=10R 5%
+Change Component Comment : Designator=R17 Old Comment=10R 5%  New Comment=10R 5%
+Change Component Comment : Designator=R9 Old Comment=715R 1%  New Comment=715R 1%
+Added Component: Designator=TP34(TP-SM-C-100)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartNumber"; Value = "TP-SM-C-100"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=PP3V7 Pin=C11-2
+Added Pin To Net: NetName=PPVBAT_CONN_P Pin=TP3-1
+Added Pin To Net: NetName=SPI0_CS_TP Pin=M1-10
+Added Pin To Net: NetName=SPI0_CS_TP Pin=TP34-1
+Added Net: Name=SPI0_CS_TP
+Added Member To Class: ClassName=CYW43907 Member=Component TP34 TP-SM-C-100

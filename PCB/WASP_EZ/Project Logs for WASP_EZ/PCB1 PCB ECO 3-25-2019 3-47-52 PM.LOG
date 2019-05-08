@@ -1,0 +1,46 @@
+Removed Pin From Net: NetName=CYW_RESET_L Pin=M1-62
+Removed Pin From Net: NetName=CYW_RESET_L Pin=P4-2
+Removed Pin From Net: NetName=GND Pin=SW1-2
+Removed Pin From Net: NetName=CYW_RESET_L Pin=SW1-3
+Removed Pin From Net: NetName=CYW_RESET_L Pin=SW1-4
+Change Component Footprint: Designator=SW1 Old Footprint=OMRON-B3S-1000-4_V New Footprint=OMRON-B3U-1000_V
+Change Component Comment : Designator=R23 Old Comment=130R 5%  New Comment=130R 5%
+Change Component Comment : Designator=R25 Old Comment=130R 5%  New Comment=130R 5%
+Change Component Comment : Designator=SW1 Old Comment=B3S-1000 New Comment=B3U-1000P
+Change component parameters: Designator = "SW1"; Footprint = "OMRON-B3U-1000_V"; UniqueID = "\HTJXKSTB"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Actuator Length"; Value = "0.4mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Case/Package"; Value = "SMD/SMT"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Contact Current Rating"; Value = "50mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Contact Material"; Value = "Silver"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Current Rating"; Value = "50mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet URL"; Value = "http://www.omron.com/ecb/products/pdf/en-b3u.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Version"; Value = "42005.0"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Depth"; Value = "2.5mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Electrical Life"; Value = "200000Cycles"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "1.2mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Illumination Type"; Value = "Illuminated"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Insulation Resistance"; Value = "100MOhm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Lead Free"; Value = "LeadFree"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Length"; Value = "4mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Omron Electronic Components"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer URL"; Value = "http://www.omron.com/"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Current Rating"; Value = "50mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Operating Temperature"; Value = "70degC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Min Operating Temperature"; Value = "-25degC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mount"; Value = "SurfaceMount"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Operating Force"; Value = "1.5N"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Orientation"; Value = "Straight"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package Description"; Value = "2-Pin Surface Mount Device, Body 3 x 2.5 mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package Quantity"; Value = "1"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package Reference"; Value = "B3U-1000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Packaging"; Value = "TapeandReel"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "REACH SVHC"; Value = "Unknown"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RoHSCompliant"; Value = "true"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Switch Travel"; Value = "0.15mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Termination"; Value = "SMD/SMT"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Throw Configuration"; Value = "SPST"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Voltage Rating (DC)"; Value = "12V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Weight"; Value = "0.022g"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Width"; Value = "3mm"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=CYW_RESET_L Pin=SW1-2

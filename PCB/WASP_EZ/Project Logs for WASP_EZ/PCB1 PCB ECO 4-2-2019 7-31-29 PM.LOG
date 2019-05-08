@@ -1,0 +1,129 @@
+Added Component: Designator=C28(CAPC0402(1005)60_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "0.6 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "±10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C29(CAPC0402(1005)60_N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "1005"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "0.6 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "6.3 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "±10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C28-1
+Added Pin To Net: NetName=PP3V3_ADXL Pin=C28-2
+Added Pin To Net: NetName=GND Pin=C29-1
+Added Pin To Net: NetName=PP3V3_ADXL Pin=C29-2
+Added Member To Class: ClassName=Buck Boost Member=Component C1 CAP 10uF 6.3V 0603(1608)
+Added Member To Class: ClassName=Buck Boost Member=Component C2 CAP 10uF 6.3V 0603(1608)
+Added Member To Class: ClassName=Buck Boost Member=Component C3 CAP 100nF 6.3V 0402(1005)
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component C4 0.1uF
+Added Member To Class: ClassName=Buck Boost Member=Component C5 CAP 10uF 6.3V 0603(1608)
+Added Member To Class: ClassName=Buck Boost Member=Component C6 CAP 10uF 6.3V 0603(1608)
+Added Member To Class: ClassName=Buck Boost Member=Component C7 CAP 10uF 6.3V 0603(1608)
+Added Member To Class: ClassName=Buck Boost Member=Component C8 CAP 10uF 6.3V 0603(1608)
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component C9 CAP 10uF 6.3V 0603(1608)
+Added Member To Class: ClassName=Buck Boost Member=Component C10 CAP 10uF 6.3V 0603(1608)
+Added Member To Class: ClassName=Buck Boost Member=Component C11 100nF
+Added Member To Class: ClassName=ADC - AD4008 Member=Component C16 CAP 10uF 6.3V 0603(1608)
+Added Member To Class: ClassName=ADC - AD4008 Member=Component C17 CAP 100nF 6.3V 0402(1005)
+Added Member To Class: ClassName=ADC - AD4008 Member=Component C18 CAP 100nF 6.3V 0402(1005)
+Added Member To Class: ClassName=ADC - AD4008 Member=Component C19 CAP 10uF 6.3V 0603(1608)
+Added Member To Class: ClassName=CYW43907 Member=Component C20 CAP 10uF 6.3V 0603(1608)
+Added Member To Class: ClassName=CYW43907 Member=Component C21 CAP 10uF 6.3V 0603(1608)
+Added Member To Class: ClassName=Buck Boost Member=Component C22 2.2uF 10V
+Added Member To Class: ClassName=Buck Boost Member=Component C23 100nF
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component C24 0.1uF
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component C25 0.1uF
+Added Member To Class: ClassName=Debug Member=Component C26 100nF
+Added Member To Class: ClassName=Debug Member=Component C27 100nF
+Added Member To Class: ClassName=ADC - AD4008 Member=Component C31 CAP 1uF 10V 0402(1005)
+Added Member To Class: ClassName=ADC - AD4008 Member=Component C35 CAP 100nF 6.3V 0402(1005)
+Added Member To Class: ClassName=ADC - AD4008 Member=Component C36 CAP 2.2uF 6.3V 0402(1005)
+Added Member To Class: ClassName=ADC - AD4008 Member=Component C37 CAP 2.2uF 6.3V 0402(1005)
+Added Member To Class: ClassName=CYW43907 Member=Component DS1 APG1608CGKC/T
+Added Member To Class: ClassName=CYW43907 Member=Component DS2 APG1608SURKC/T
+Added Member To Class: ClassName=Buck Boost Member=Component L1 XFL4020-102MEC
+Added Member To Class: ClassName=CYW43907 Member=Component M1 Imp005 easyModule
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component P1 PHT-104-01-L-S
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component P2 S2B-PH-K-S(LF)(SN)
+Added Member To Class: ClassName=Debug Member=Component P3 PHT-104-01-L-S
+Added Member To Class: ClassName=CYW43907 Member=Component P4 PHT-104-01-L-S
+Added Member To Class: ClassName=CYW43907 Member=Component P5 PHT-104-01-L-S
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component Q1 SIS413DN-T1-GE3
+Added Member To Class: ClassName=CYW43907 Member=Component Q2 NTUD3170NZT5G
+Added Member To Class: ClassName=Buck Boost Member=Component R1 910K 1% 0402(1005)
+Added Member To Class: ClassName=Buck Boost Member=Component R2 143K 1% 0402(1005)
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component R3 47K 5% 0402(1005)
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component R4 47K 5% 0402(1005)
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component R5 100K 5% 0402(1005)
+Added Member To Class: ClassName=Buck Boost Member=Component R6 20K 5% 0402(1005)
+Added Member To Class: ClassName=Buck Boost Member=Component R7 Jumper 0402(1005)
+Added Member To Class: ClassName=CYW43907 Member=Component R12 47K 5% 0402(1005)
+Added Member To Class: ClassName=CYW43907 Member=Component R13 47K 5% 0402(1005)
+Added Member To Class: ClassName=Buck Boost Member=Component R14 0.22
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component R15 10R 5%
+Added Member To Class: ClassName=Debug Member=Component R16 100K 5% 0402(1005)
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component R17 10R 5%
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component R18 Jumper 0402(1005)
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component R19 Jumper 0402(1005)
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component R20 0.22
+Added Member To Class: ClassName=Debug Member=Component R21 33K 5% 0402(1005)
+Added Member To Class: ClassName=Debug Member=Component R22 33K 5% 0402(1005)
+Added Member To Class: ClassName=CYW43907 Member=Component R23 130R 5%
+Added Member To Class: ClassName=CYW43907 Member=Component R24 100K 5% 0402(1005)
+Added Member To Class: ClassName=CYW43907 Member=Component R25 130R 5%
+Added Member To Class: ClassName=CYW43907 Member=Component R26 100K 5% 0402(1005)
+Added Member To Class: ClassName=ADC - AD4008 Member=Component R27 Jumper 0402(1005)
+Added Member To Class: ClassName=ADC - AD4008 Member=Component R28 Jumper 0402(1005)
+Added Member To Class: ClassName=ADC - AD4008 Member=Component R29 Jumper 0402(1005)
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component R35 Jumper 0402(1005)
+Added Member To Class: ClassName=ADC - AD4008 Member=Component R38 Jumper 0402(1005)
+Added Member To Class: ClassName=ADC - AD4008 Member=Component R41 100K 5% 0402(1005)
+Added Member To Class: ClassName=Buck Boost Member=Component R45 20K 5% 0402(1005)
+Added Member To Class: ClassName=Debug Member=Component SW1 B3U-1000P
+Added Member To Class: ClassName=Debug Member=Component SW2 B3U-1000P
+Added Member To Class: ClassName=Buck Boost Member=Component TP1 TP-SM-C-100
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component TP2 TP-SM-C-100
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component TP3 5012
+Added Member To Class: ClassName=ADC - AD4008 Member=Component TP4 TP-SM-C-100
+Added Member To Class: ClassName=ADC - AD4008 Member=Component TP5 TP-SM-C-100
+Added Member To Class: ClassName=ADC - AD4008 Member=Component TP8 TP-SM-C-100
+Added Member To Class: ClassName=Buck Boost Member=Component TP9 TP-SM-C-100
+Added Member To Class: ClassName=Buck Boost Member=Component TP11 TP-SM-C-100
+Added Member To Class: ClassName=Buck Boost Member=Component TP12 TP-SM-C-100
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component TP13 5012
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component TP14 TP-SM-C-100
+Added Member To Class: ClassName=CYW43907 Member=Component TP15 TP-SM-C-100
+Added Member To Class: ClassName=CYW43907 Member=Component TP16 TP-SM-C-100
+Added Member To Class: ClassName=CYW43907 Member=Component TP17 TP-SM-C-100
+Added Member To Class: ClassName=CYW43907 Member=Component TP18 TP-SM-C-100
+Added Member To Class: ClassName=CYW43907 Member=Component TP19 TP-SM-C-100
+Added Member To Class: ClassName=Debug Member=Component TP20 TP-SM-C-100
+Added Member To Class: ClassName=Debug Member=Component TP21 TP-SM-C-100
+Added Member To Class: ClassName=CYW43907 Member=Component TP22 TP-SM-C-100
+Added Member To Class: ClassName=CYW43907 Member=Component TP23 TP-SM-C-100
+Added Member To Class: ClassName=ADC - AD4008 Member=Component TP24 TP-SM-C-100
+Added Member To Class: ClassName=CYW43907 Member=Component TP25 TP-SM-C-100
+Added Member To Class: ClassName=CYW43907 Member=Component TP26 TP-SM-C-100
+Added Member To Class: ClassName=CYW43907 Member=Component TP27 TP-SM-C-100
+Added Member To Class: ClassName=CYW43907 Member=Component TP28 TP-SM-C-100
+Added Member To Class: ClassName=CYW43907 Member=Component TP29 TP-SM-C-100
+Added Member To Class: ClassName=ADC - AD4008 Member=Component TP30 TP-SM-C-100
+Added Member To Class: ClassName=ADC - AD4008 Member=Component TP31 TP-SM-C-100
+Added Member To Class: ClassName=Buck Boost Member=Component TP32 TP-SM-C-100
+Added Member To Class: ClassName=Buck Boost Member=Component TP33 TP-SM-C-100
+Added Member To Class: ClassName=CYW43907 Member=Component TP34 TP-SM-C-100
+Added Member To Class: ClassName=Buck Boost Member=Component U1 TPS63020DSJT
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component U2 LTC2941CDCB-1#TRMPBF
+Added Member To Class: ClassName=Buck Boost Member=Component U3 TPS73733DCQ
+Added Member To Class: ClassName=ADC - AD4008 Member=Component U5 LT1461ACS8-3.3
+Added Member To Class: ClassName=ADC - AD4008 Member=Component U6 AD4008BCPZ-RL7
+Added Member To Class: ClassName=Gas Gauge & Bat Connector Member=Component U7 INA219BIDCNT
+Added Member To Class: ClassName=ADC - AD4008 Member=Component U9 TPS780180300DRVR

@@ -1,0 +1,18 @@
+Removed Pin From Net: NetName=INA_A1 Pin=U7-1
+Removed Pin From Net: NetName=INA_A0 Pin=U7-2
+Removed Pin From Net: NetName=I2C_INA_SCL Pin=U7-3
+Removed Pin From Net: NetName=I2C_INA_SDA Pin=U7-4
+Removed Pin From Net: NetName=PP3V3_INA Pin=U7-5
+Removed Pin From Net: NetName=GND Pin=U7-6
+Removed Pin From Net: NetName=INA_SENSE_N Pin=U7-7
+Removed Pin From Net: NetName=INA_SENSE_P Pin=U7-8
+Removed Member From Class: ClassName=Gas Gauge & Bat Connector Member=U?
+Change Component Designator: OldDesignator=U? NewDesignator=U7
+Added Pin To Net: NetName=INA_SENSE_P Pin=U7-1
+Added Pin To Net: NetName=INA_SENSE_N Pin=U7-2
+Added Pin To Net: NetName=GND Pin=U7-3
+Added Pin To Net: NetName=PP3V3_INA Pin=U7-4
+Added Pin To Net: NetName=I2C_INA_SDA Pin=U7-5
+Added Pin To Net: NetName=I2C_INA_SCL Pin=U7-6
+Added Pin To Net: NetName=INA_A0 Pin=U7-7
+Added Pin To Net: NetName=INA_A1 Pin=U7-8
