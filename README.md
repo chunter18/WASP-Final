@@ -46,6 +46,8 @@ Our final step before building is to change some of the WASP defualts to better 
 
 You are no finally ready to build the WASP app! To do so, place the following make target into your list `WASP.wasp_main-Quicksilver_EVL JTAG=jlink ota2_image download_apps download run` and run it. This will build and download the app onto the WASP board for evaluation.
 
+IMPORTANT!!! The wasp server uses the clients MAC address to correlate which data came from which board. By default, WICE will build all the board images with the same mac adress - you will need to change the mac for each board you upload to by editing the `generated_mac_address.txt` file.
+
 To see what the platform is running, connect any UART to USB device to the WASP board UART headers, and open the associated com port. the WASP app prints some various information to the console, which can be useful for debugging.
 
 In addition to this, the WASP server will need to be running in order to see the full functionality of the test app (otherwise the board will stop after failing to connect over TCP). To build the server, cd into the server directory of the repo and run make. The server will then be ready to run 
@@ -53,9 +55,21 @@ In addition to this, the WASP server will need to be running in order to see the
 troubleshooting
 1. Check that the OTA extract was built successfully
 2. Check that the built server IP matches the actual IP of the server on the local network. 
+3. Did the OTA failsafe accidently get set?
 3. Feel free to contact me for any other issues you may face. 
 
-# Evaluating the OTA functionality
+## Server
+
+To run the server, first build the file using the included makefile, and run the generated file `wasp`. Note: the wasp server relies on many of the libraries provided by the linux kernel, so make sure the file is built on a semi-recent linux machine.
+
+When the server starts, you should see it immidetly start printing out some basic information, like the servers current mode, the number of reciever threads running, and a table of connected boards which will initially be empty. 
+
+Fundamentally, the server has three different modes: Hibernate (0), Initializing Test Sequence (1), and Test Active (2). The mode is set by a file which will be generated for you by the server. The default mode is hibernate, which will send any connected boards back to hibernate. Each board that connects will have its mac address displayed on the table, as well as its self test status and the time since its last registration with the server.
+
+ONce you have turned on your boards and have seen thier connections on the table, you can begin to test 
+
+
+## Evaluating the OTA functionality
 
 To use the OTA function of the WASP board, you will need to follow a few additional steps.
 
