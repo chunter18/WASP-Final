@@ -5,6 +5,7 @@
 #define SELF_TEST_HIGH_BOUND 0.03
 
 extern int over_range;
+extern wiced_spi_device_t spi_device;
 
 void over_range_isr(void* arg);
 /*

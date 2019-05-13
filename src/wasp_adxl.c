@@ -1,6 +1,15 @@
 #include "wiced.h"
-#include "wiced_osl.h"
+#include "sntp.h"
+#include <inttypes.h>
+#include "../headers/wasp_udp.h"
+#include "../headers/wasp_tcp.h"
+#include "../headers/wasp_network_global.h"
+#include "../headers/wasp_threads.h"
 #include "../headers/wasp_adxl.h"
+#include "../headers/WASP_LED.h"
+#include "wiced_osl.h"
+
+#define EXSERVER_IP_ADDRESS MAKE_IPV4_ADDRESS(192,168,50,193)
 
 wiced_spi_device_t spi_device =
 {
@@ -18,6 +27,9 @@ void over_range_isr(void* arg)
     UNUSED_PARAMETER(arg);
     //WPRINT_APP_INFO(("OVER RANGE DETECTED!!\n"));
     over_range = 1;
+
+    //take the time, set the adxl to standby to protect it
+    //do this once - check the falg state first to avoid successive shit
 }
 
 void adc_adxl_setup(void)
@@ -260,7 +272,7 @@ wiced_result_t adxl_self_test(void)
     V = scaled_v /1000000;
 
     //print, if needed
-    //WPRINT_APP_INFO( ("\nSTEP = %Lf, sample = %d, Voltage = %Lf\n", step, delta, V));
+    WPRINT_APP_INFO( ("\nSTEP = %Lf, sample = %d, Voltage = %Lf\n", step, delta, V));
 
     //determine pass or fail
     if((V >= SELF_TEST_HIGH_BOUND) || (V <= SELF_TEST_LOW_BOUND)) //22mv on the graph, daniel says pass if between 15 and 30

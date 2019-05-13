@@ -275,5 +275,5 @@ uint8_t find_prescalar()
 uint8_t battery_percentage(uint16_t prescalar)
 {
     float mah = LTC2941_get_mAh(prescalar);
-    return (uint8_t)(mah/BATTERY_CAPACITY);
+    return (uint8_t)((mah/BATTERY_CAPACITY)*100);
 }

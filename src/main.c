@@ -81,7 +81,9 @@ void application_start( )
 
     //need to get data back from spi init thread - use a queue
     //we will read the data and immediately deallocate the space.
-    result = wiced_rtos_init_queue(&spi_starup_queue, NULL, 8, 1);
+    result = wiced_rtos_init_queue(&spi_starup_queue, NULL, 4, 1);
+    if(result == WICED_SUCCESS)
+        WPRINT_APP_INFO( ( "good test code queue\n"));
 
     //adc stuff - it exists in a different thread
     //ideally we would want this in the same thread, but it needs a bigger stack
@@ -89,10 +91,13 @@ void application_start( )
 
     wiced_thread_t spi_init_thread;
     result = wiced_rtos_create_thread (&spi_init_thread, 0, "", spi_startup, 10*1024, 0);
+
     wiced_rtos_thread_join(&spi_init_thread); //wait for it to finish
     uint32_t test_codes;
-    wiced_rtos_pop_from_queue(&spi_starup_queue, &test_codes, 0);
+    result = wiced_rtos_pop_from_queue(&spi_starup_queue, &test_codes, 0);
+
     registration_pckt.test_codes = (uint16_t)test_codes;
+
     //dealloc the queue - not needed anymore
     wiced_rtos_deinit_queue(&spi_starup_queue);
 
@@ -112,12 +117,14 @@ void application_start( )
     hostmac = get_mac();
     memcpy(registration_pckt.mac, hostmac.octet, sizeof(registration_pckt.mac));
     registration_pckt.battery_level = batt_level;
+    WPRINT_APP_INFO( ( "batt level = %d\n", batt_level) ); //debug
     registration_pckt.version_major = 1;
     registration_pckt.version_minor = 0;
 
 
     float mah = LTC2941_get_mAh(prescaler);
     WPRINT_APP_INFO( ( "mah = %f\n", mah) ); //debug
+
 
     //register with server
     server_init_cmds = register_with_server(registration_pckt);
@@ -127,9 +134,9 @@ void application_start( )
     {
         //error, something went wrong
         WPRINT_APP_INFO( ( "ERROR PORT NOT ASSIGNED\n") );
+        //maybe send back to hib in this case
         return;
     }
-
 
     //check whether to go back to sleep or not.
     if(server_init_cmds.send_to_hibernate == 1) //for test, should always be 1
@@ -165,6 +172,7 @@ void application_start( )
     //switching networks and extra self tests are unimplemented as of yet
 
     uint16_t port = server_init_cmds.port;
+    WPRINT_APP_INFO( ( "port %d\n", port) );
     platform_init_nanosecond_clock();
 
     //create udp socket
@@ -177,26 +185,48 @@ void application_start( )
     WPRINT_APP_INFO( ( "finished.\n") );
 
     //create queues and fill them like normal
-    result = init_queues();
+    result = init_queues(); //not needed by non perfect function
     WPRINT_APP_INFO( ( "queues ready.\n") );
 
+
     //wait for the test start broadcast
+    WPRINT_APP_INFO( ( "waiting for broadcast\n") );
     result = rx_udp();
     if(result == WICED_SUCCESS)
         WPRINT_APP_INFO( ( "start test\n") );
 
-    //spawn consumer thread
-    result = wiced_rtos_create_thread (&udp_network_thread, 5, "udp", send_wasp_packets, 10*1024, &port);
+    //sample and send thread
+    wiced_thread_t dummy;
+    result = wiced_rtos_create_thread (&dummy, 4, "send_samples", tx_udp_packet_known_good, 10*1024, NULL);
+    wiced_rtos_thread_join(&dummy);
+
+
+    //cant get these to work for the life of me - something is messed up that I cant seem to figure out after weeks
+    //result = wiced_rtos_create_thread (&udp_network_thread, 4, "udp", send_wasp_packets, 10*1024, &port);
+    //if(result == WICED_SUCCESS)
+    //    WPRINT_APP_INFO( ( "udp thread started\n") );
+    //else
+    //    WPRINT_APP_INFO( ( "udp thread ERROR!\n") );
 
     //spawn tcp async thread?
     //wiced_thread_t tcp_async_thread; does this need to be a thread??
-    tcp_server_start_async();
+    //tcp_server_start_async();
 
     //spawn producer thread
-    result = wiced_rtos_create_thread (&spi_sample_thread, 4, "spi", sample_main, 10*1024, 0);
+    /*
+    wiced_thread_t spi_sample_thread;
+    result = wiced_rtos_create_thread (&spi_sample_thread, 4, "spi", sample_main, 15*1024, NULL);
+    if(result == WICED_SUCCESS)
+        WPRINT_APP_INFO( ( "spi thread started\n") );
+    else
+        WPRINT_APP_INFO( ( "spi thread ERROR!\n") );
+
+    wiced_rtos_thread_join(&spi_sample_thread);
+    */
 
     return;
 }
+
 
 void spi_startup(void *arg)
 {
@@ -206,18 +236,28 @@ void spi_startup(void *arg)
     uint32_t testcodes = 0;
     uint8_t one = 1;
 
+    adc_adxl_setup(); //init gpios
+
     res = adc_unset_high_z();
     if(res == WICED_SUCCESS)
+    {
         testcodes |= one;
+        WPRINT_APP_INFO( ( "adc reset success\n") );
+    }
 
     res = adxl_self_test();
     if(res == WICED_SUCCESS)
+    {
         testcodes |= (one<<1);
+        WPRINT_APP_INFO( ( "self test pass\n") );
+    }
 
     res = adc_set_high_z();
     if(res == WICED_SUCCESS)
+    {
         testcodes |= (one<<2);
-
+        WPRINT_APP_INFO( ( "set high z success\n") );
+    }
     wiced_rtos_push_to_queue(&spi_starup_queue, &testcodes, 0);
     return;
 }
@@ -231,30 +271,62 @@ void sample_main(void *arg)
     wiced_iso8601_time_t iso8601_time;
     uint16_t sample1;
     uint16_t sample2;
-    uint32_t message;
+    uint32_t comm_message;
     uint32_t loopcount = 0;
     uint32_t pckt_count = 0;
     uint64_t command;
     uint32_t send = 0;
+    wiced_result_t ret;
+    wasp_pckt_t raw_data;
+    int tx_count = 0;
 
+    //platform_init_nanosecond_clock();
+
+    int16_t nsegments = 2;
+    wiced_spi_message_segment_t message[1];
+    uint8_t txbuf[2], rxbuf[2];
+
+    //send all ones for  conversion
+    txbuf[0] = 0xFF;
+    txbuf[1] = 0xFF;
+    message[0].tx_buffer = txbuf;
+    message[0].rx_buffer = rxbuf;
+    message[0].length = 2;
     WPRINT_APP_INFO( ( "begin sampling\n") );
 
     nano_test_start = wiced_get_nanosecond_clock_value(); //mark it just in case, nut test ends will be async
-
     while(!test_concluded)
     {
         //this isnt EXACTLY regular - TODO.
         wiced_time_get_iso8601_time( &iso8601_time );
         nano_time = wiced_get_nanosecond_clock_value();
-        wiced_rtos_push_to_queue(&iso_time_queue, &iso8601_time, 0);
-        wiced_rtos_push_to_queue(&nano_time_queue, &nano_time, 0);
+        //wiced_rtos_push_to_queue(&iso_time_queue, &iso8601_time, 0);
+        //wiced_rtos_push_to_queue(&nano_time_queue, &nano_time, 0);
+
+        raw_data.packet_count = tx_count++;
+        raw_data.time_start = iso8601_time;
+        raw_data.nano_time_start = nano_time;
 
         for(int i = 0; i < 118; i++)
         {
-            sample1 = adc_sample(); //takes about 20us
-            sample2 = adc_sample();
-            message = ((uint32_t)sample1 << 16) | sample2;
-            wiced_rtos_push_to_queue(&main_queue, &message, 0);
+            wiced_gpio_output_high(WICED_GPIO_34);
+            wiced_gpio_output_high(WICED_GPIO_34);
+            wiced_gpio_output_low(WICED_GPIO_34);
+            wiced_spi_transfer(&spi_device , message, nsegments);
+            sample1 = ((uint16_t)rxbuf[0] << 8) | rxbuf[1];
+
+            wiced_gpio_output_high(WICED_GPIO_34);
+            wiced_gpio_output_high(WICED_GPIO_34);
+            wiced_gpio_output_low(WICED_GPIO_34);
+            wiced_spi_transfer(&spi_device , message, nsegments);
+            sample2 = ((uint16_t)rxbuf[0] << 8) | rxbuf[1];
+
+
+            //comm_message = ((uint32_t)sample1 << 16) | sample2;
+            //wiced_rtos_push_to_queue(&main_queue, &comm_message, 0);
+
+            raw_data.samples[i] = sample1;
+            raw_data.samples[i+1] = sample2;
         }
 
         //create message for the other thread
@@ -265,17 +337,21 @@ void sample_main(void *arg)
             send = 1;
         }
 
-        command = ((uint64_t)pckt_count << 32) | send;
-        wiced_rtos_push_to_queue(&comm_queue, &command, 0);
+        //command = ((uint64_t)pckt_count << 32) | send;
+        //wiced_rtos_push_to_queue(&comm_queue, &command, 0);
 
-        wiced_watchdog_kick(); //need to kick watchdog to avoid a reset, see documentation for this function
+        //wiced_watchdog_kick(); //need to kick watchdog to avoid a reset, see documentation for this function
+
+        //test only, this should be deleted
+        tx_udp_packet();
+        //tx_udp_packet_arg(&raw_data);
     }
 
-    nano_test_start = wiced_get_nanosecond_clock_value();
+    nano_test_end = wiced_get_nanosecond_clock_value();
     //compute delta if needed
 
     //wait for other thread to be done, then go to hib.
-    wiced_rtos_thread_join(&udp_network_thread);
+    //wiced_rtos_thread_join(&udp_network_thread);
     send_to_hibernate();
 
 

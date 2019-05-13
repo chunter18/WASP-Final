@@ -27,7 +27,7 @@ Team: Tyler Hack and Daniel Webber
 
 //gloabal variables - look up tables
 char macs[300][6];	//this sets the max num devices to 300
-char ips[300][14];
+char ips[300][INET_ADDRSTRLEN];
 FILE *outputfiles[300]; //one file per wasp board for data storage
 uint16_t ports[300];
 int packet_counts[300];
@@ -63,6 +63,15 @@ int main()
 		modefile = fopen("mode", "wb");
 		fprintf(modefile, "%d", mode);
 		fclose(modefile);
+		
+		
+		//memcpy(ips[0], "", 14);
+		//memcpy(macs[0], "", 6); 
+		//uint16_t portz = 50001;
+		//ports[0] = portz;
+		//pthread_t recz;
+		//pthread_create(&recz, NULL, wasp_recieve, &portz);
+		//pthread_join(recz, NULL);
 		
 		
 		//create a data directory based on func args
@@ -255,11 +264,7 @@ int main()
 		}
 		
 		//we got here, we are now ready to begin the test sequence
-		//for(int i = 0; i <  10; i++) //loop through all the macs to find which ones we are assigned
-		//{
-		//	printf("%d\n", ports[i]);
-		//}
-		//somehow the ports are wrong here, even though the device recieves the right response
+		//TODO - only spawn extra threads if more than 1,2,3,4 devices connected
 		
 		//spawn the UDP threads to let them each spin up
 		pthread_t rec1, rec2, rec3, rec4; //4 threads for 4 cores
@@ -277,8 +282,52 @@ int main()
 		sleep(3); //wait for threads to enter their loops
 		start_test(); //blast broadcast message 
 		
+		//start the async tcp
+		//right now we prob just want to send a wasp packet to saying stop the test
+		//and go back to hib
+		pthread_t tcp_async;
+		pthread_create(&tcp_async, NULL, tcp_async_command, NULL);
+		
+		
 		pthread_join(rec1, NULL); //dont return from main until we are done!!!
 		return 0;
+}
+
+void *tcp_async_command(void *arg)
+{
+	//if we got here, the test has started.
+	//monitor the mode to see if it goes back to hibernate
+	//if so, send a wasp command packet to send tht ebaord to sleep
+	
+	//right now the wasp recieve threads have no stop condition
+	
+	//tcp setup
+	
+	
+	FILE *modefile;
+	enum testmode cur_mode;
+	
+	
+	int printed = 0;
+	while(1)
+	{
+		//check the mode
+		modefile = fopen("mode", "rb");
+		fscanf(modefile, "%d", &cur_mode);
+		fclose(modefile);
+		
+		if(mode == hibernate)
+		{
+			if(!printed)
+			{
+				printf("test done, sending boards back to sleep\n");
+				//have this in the print funct
+				printed = 1;
+			}
+		}
+		//send a sleep packet
+		sleep(5);
+	}
 }
 
 void start_test(void)
@@ -340,11 +389,11 @@ void *wasp_recieve(void *arg)
 	//00:a0:50:c4:26:a1
 	char macaddrstr[18];
 	char filename[21];
-	char filenames[75][21];
-	FILE *outfile;
+	char filenames[75][21]; //no longer needed
+	FILE *outfiles[75];
 	int num_devices = 0;
 	//open all the files and write the csv headers
-	printf("%d, %d\n", ports[0], port); // was getting weird neg numbers, make sure ports are unsigned
+	//printf("%d, %d\n", ports[0], port); // was getting weird neg numbers, make sure ports are unsigned
 	for(int i = 0; i <  300; i++) //loop through all the macs to find which ones we are assigned
 	{
 	
@@ -359,15 +408,21 @@ void *wasp_recieve(void *arg)
 			//add the mac and ip to our local lists
 			memcpy(macs_local[num_devices], macs[i], sizeof(macs[i]));
 			memcpy(ips_local[num_devices], ips[i], sizeof(ips[i]));
-			memcpy(filenames[num_devices], filename, sizeof(filename));
+			memcpy(filenames[num_devices], filename, sizeof(filename)); //no longer needed
 			global_indexes[num_devices] = i;
+			
+			//open the file and print the csv header
+			outfiles[num_devices] = fopen(filename, "wb");
+			fprintf(outfiles[num_devices], "count,isotime,nanotime,samples\n");
 			num_devices++;
 			thread_devices_found++;
 			
 			//open the file and print the csv header
-			outfile = fopen(filename, "wb");
-			fprintf(outfile, "count,isotime,nanotime,samples\n");
-			fclose(outfile);
+			
+			
+			//fclose(outfile); 
+			//we wont be closing the files at each packet rx becuase of the performace penalty
+			//we will hold them open and close all of them at the end of mode goes back to hib
 			
 		}
 	}
@@ -412,7 +467,7 @@ void *wasp_recieve(void *arg)
 	char newline = '\n';
 	char addr_str[INET_ADDRSTRLEN];
 	int index;
-	
+	FILE *outfile;
 	//wait for the test to begin
 	
 	//needs to be changed so it writes to the proper output file
@@ -426,7 +481,7 @@ void *wasp_recieve(void *arg)
 		//find the ip in our table of ips
 		for(int j = 0; j < num_devices; j++)
 		{
-			printf("%s, %s", ips_local[j],addr_str);
+			//printf("%s, %s", ips_local[j],addr_str);
 			if(strcmp(ips_local[j],addr_str) == 0) //found it
 			{
 				index = j;
@@ -447,15 +502,16 @@ void *wasp_recieve(void *arg)
 		memcpy(&ntstart, buf+sizeof(count)+sizeof(tstart), sizeof(ntstart));
 		memcpy(samps, buf+sizeof(count)+sizeof(tstart)+sizeof(ntstart), sizeof(samps)); //put packet data in buffer all at once
 
-		//open the file
-		outfile = fopen(filenames[index], "wb");
-		fprintf(outfile, "%d,", count+1);
-		fprintf(outfile, "%s,", (char*)&tstart);
-		fprintf(outfile, "%f,", (float)ntstart);
+		//choose the correct file to write to
+		//outfile = outfiles[index];
+		fprintf(outfiles[index], "%d,", count+1);
+		fprintf(outfiles[index], "%s,", (char*)&tstart);
+		fprintf(outfiles[index], "%f,", (float)ntstart);
 		for(int i = 0; i < 236; i++)
-			fprintf(outfile, "%d ", samps[i]); //no comma between samples, all 1 column
-		fprintf(outfile, "\n");
-		fclose(outfile);
+			fprintf(outfiles[index], "%d ", samps[i]); //no comma between samples, all 1 column
+		fprintf(outfiles[index], "\n");
+		//fclose(outfile);
+		fflush(outfiles[index]); //same as writing in that it writes buffered shit to file, but doesnt close the file!
 
 		packet_counts_local[index]++;
 		if(packet_counts_local[index]==10000)
@@ -463,8 +519,22 @@ void *wasp_recieve(void *arg)
 			packet_counts_local[index]==0;
 			packet_counts[global_indexes[index]]++;
 		}
+		
+		//check the mode
+		if(mode == hibernate)
+		{
+			printf ("closing...\n");
+			break;
+		}
 	}
 	
+	//close all the files to finalize the data
+	for(int i = 0; i <  num_devices; i++)
+	{
+		fclose(outfiles[i]); //we are buffering a LOT of data
+	}
+	
+	return NULL;
 }
 
 void *print_data(void *arg) //numprint is num connected clients

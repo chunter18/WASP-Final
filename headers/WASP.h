@@ -13,3 +13,5 @@
 #include "wasp_threads.h"
 #include "ota2_base.h"
 #include "ota2_helper.h"
+#include "wiced_osl.h"
+#include <inttypes.h>

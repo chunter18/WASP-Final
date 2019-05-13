@@ -122,3 +122,23 @@ void led_show(int which, int on)
             break;
     }
 }
+
+void toggle_red_led(void)
+{
+    wiced_bool_t redon;
+    redon = wiced_gpio_input_get(WICED_GPIO_29);
+    if(redon)
+        wiced_gpio_output_low( WICED_GPIO_29 );
+    else
+        wiced_gpio_output_high( WICED_GPIO_29 );
+}
+void toggle_green_led(void)
+{
+    wiced_bool_t greenon;
+    greenon = wiced_gpio_input_get(WICED_GPIO_28);
+    if(greenon)
+        wiced_gpio_output_low( WICED_GPIO_28 );
+    else
+        wiced_gpio_output_high( WICED_GPIO_28 );
+
+}

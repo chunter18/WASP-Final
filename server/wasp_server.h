@@ -59,3 +59,4 @@ uint16_t assign_port(void);
 void *print_data(void *arg);
 void start_test(void);
 void *wasp_recieve(void *arg);
+void *tcp_async_command(void *arg);
