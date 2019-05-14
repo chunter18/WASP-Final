@@ -107,6 +107,7 @@ void application_start( )
     //bring up the network using last know config
     wiced_network_up(WICED_STA_INTERFACE, WICED_USE_EXTERNAL_DHCP_SERVER, NULL);
 
+
     //create the TCP client to register with the server
     result = tcp_init();
     if(result != WICED_SUCCESS)
@@ -188,12 +189,17 @@ void application_start( )
     result = init_queues(); //not needed by non perfect function
     WPRINT_APP_INFO( ( "queues ready.\n") );
 
+    //spawn tcp async thread?
+    //wiced_thread_t tcp_async_thread; does this need to be a thread??
+    //tests say no thread needed
+    tcp_server_start_async();
 
     //wait for the test start broadcast
     WPRINT_APP_INFO( ( "waiting for broadcast\n") );
     result = rx_udp();
     if(result == WICED_SUCCESS)
         WPRINT_APP_INFO( ( "start test\n") );
+
 
     //sample and send thread
     wiced_thread_t dummy;
@@ -207,10 +213,6 @@ void application_start( )
     //    WPRINT_APP_INFO( ( "udp thread started\n") );
     //else
     //    WPRINT_APP_INFO( ( "udp thread ERROR!\n") );
-
-    //spawn tcp async thread?
-    //wiced_thread_t tcp_async_thread; does this need to be a thread??
-    //tcp_server_start_async();
 
     //spawn producer thread
     /*

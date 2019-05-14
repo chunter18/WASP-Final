@@ -1,6 +1,7 @@
 #include "wiced.h"
 #include "../headers/wasp_tcp.h"
 #include "../headers/wasp_network_global.h"
+#include "../headers/wasp_hibernate.h"
 
 wiced_tcp_socket_t  tcp_client_socket;
 wiced_tcp_socket_t  tcp_server_socket;
@@ -32,7 +33,7 @@ wiced_result_t tcp_init(void)
 wiced_result_t tcp_server_start_async(void)
 {
     wiced_result_t result;
-    if ( wiced_tcp_create_socket( &tcp_server_socket, WICED_AP_INTERFACE ) != WICED_SUCCESS )
+    if ( wiced_tcp_create_socket( &tcp_server_socket, WICED_STA_INTERFACE ) != WICED_SUCCESS )
     {
         WPRINT_APP_INFO( ("TCP socket creation failed\r\n") );
         return WICED_ERROR;
@@ -102,11 +103,16 @@ wiced_result_t received_data_callback( wiced_tcp_socket_t* socket, void* arg )
     wiced_packet_get_data( rx_packet, 0, (uint8_t**) &request, &request_length, &available_data_length );
 
     //get data
-    //for now the data doesnt matter
+    //for now the data doesnt matter - only case where we get this is if we are sending to hib
+    //if a user wants more we can easily add here, but otherwise just send to hib.
     test_concluded = 1;
 
     /* Release a packet */
     wiced_packet_delete( rx_packet );
+
+    //send to hib
+    send_to_hibernate();
+
     return WICED_SUCCESS;
 }
 

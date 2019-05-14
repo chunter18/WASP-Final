@@ -21,7 +21,7 @@ Team: Tyler Hack and Daniel Webber
 #include <sys/stat.h>
 #include <limits.h>
 #include <pthread.h> //need to add -lpthread to make command
-
+#include <dirent.h>
 #include "wasp_server.h" //defines and stuff
 
 
@@ -39,15 +39,23 @@ int self_test_statuses[300];
 int n_connected = 0;
 int n_ready = 0;
 int threads_running = 0;
-
 int thread_devices_found = 0;
+int device_err_flag = 0;
 
 enum testmode{hibernate, initializing, testing}; //for printing the mode
 enum testmode mode;
 
 char *datadir;
 
+typedef struct
+{
+	uint16_t port;
+	int selected;
+	int selected_num;
+} thread_args_t;
+//will need to add another line to the mode file
 
+//one interesting thing to add would be server discovery insteaed of using a fixed server ip in the board code
 int main(int argc, char *argv[])
 {
 		//main function is just the tcp server until the test starts.
@@ -123,9 +131,15 @@ int main(int argc, char *argv[])
 		modefile = fopen("mode", "wb");
 		fprintf(modefile, "%d", mode);
 		fclose(modefile);
-		
-		
 		//NOTE: we can create files that are pure macs like 00:a0:50:c4:26:a1.csv on linux
+		
+		
+		//create a file to select the board to send data for graphing
+		//we could put this in the mode file, but we have to add a loop to count the lines or change the read structure
+		FILE *graphfile;
+		graphfile = fopen("graph", "wb");
+		fprintf(graphfile, "%d", 0);
+		fclose(graphfile);
 		
 		//initialize the table print thread
 		pthread_t print_thread;
@@ -285,10 +299,35 @@ int main(int argc, char *argv[])
 						}
 						if(timediff >= 720) //720 sec is 12 min - allows for boards to connect to wifi as well as complete the ntp time sync.
 						{
+							/*
 							//at least 1 device has not connected properly.
 							//first, we need to find which one it is - whatever ones have times that are greater than 720 sec
-							
+							for(int x = 0; x < n_connected; x++)
+							{
+								double timediff_device = difftime(timer_now, rawtimes[x]);
+								if(timediff_device >=720)
+								{
+									//this board has an error
+								}
+							}
 							//then, let the user know
+							//set an error flag so the print thread can show the error boards
+							device_err_flag = 1;
+							
+							//jump into a while loop to wait for the user to take an action
+							while(1)
+							{
+								//check if the flag has been unset
+								if(device_err_flag == 0)
+									break;
+								sleep(1);
+							}
+							
+							//if we get out of the loop, begin listening again and reset the timer
+							
+							timer_started = 0; //this will give us another bit of time for the board to reconnect
+							continue;
+							*/
 						}
 								
 					}
@@ -303,19 +342,38 @@ int main(int argc, char *argv[])
 		
 		//spawn the UDP threads to let them each spin up
 		pthread_t rec1, rec2, rec3, rec4; //4 threads for 4 cores
+		thread_args_t arg1, arg2, arg3, arg4;
+		int thread2_started = 0;
+		int thread3_started = 0;
+		int thread4_started = 0;
 		// in the future we should be able to make the number of reciveing processes equal to number
 		//of cores as a runtime parameter
 		uint16_t port1 = 50001;
 		uint16_t port2 = 50002;
 		uint16_t  port3 = 50003;
 		uint16_t  port4 = 50004;
+		
+		//set these based on the mode file
+		arg1.port = port1;
+		arg1.selected = 1;
+		arg1.selected_num = 1;
+		
 		pthread_create(&rec1, NULL, wasp_recieve, &port1);
 		if(n_connected >=2)
+		{
 			pthread_create(&rec2, NULL, wasp_recieve, &port2);
+			thread2_started = 1;
+		}
 		if(n_connected >= 3)
+		{
 			pthread_create(&rec3, NULL, wasp_recieve, &port3);
+			thread3_started = 1;
+		}
 		if(n_connected >= 4)
+		{
 			pthread_create(&rec4, NULL, wasp_recieve, &port4);
+			thread4_started = 1;
+		}
 		
 		sleep(3); //wait for threads to enter their loops
 		start_test(); //blast broadcast message 
@@ -328,9 +386,14 @@ int main(int argc, char *argv[])
 		
 		
 		pthread_join(rec1, NULL); //dont return from main until we are done!!!
-		pthread_join(rec2, NULL); //dont return from main until we are done!!!
-		pthread_join(rec3, NULL); //dont return from main until we are done!!!
-		pthread_join(rec4, NULL); //dont return from main until we are done!!!
+		if(thread2_started)
+			pthread_join(rec2, NULL); //dont return from main until we are done!!!
+		if(thread3_started)
+			pthread_join(rec3, NULL); //dont return from main until we are done!!!
+		if(thread4_started)
+			pthread_join(rec4, NULL); //dont return from main until we are done!!!
+		
+		pthread_join(tcp_async, NULL); //let the async server return so we know that the boards have been sent to sleep
 		return 0;
 }
 
@@ -340,16 +403,32 @@ void *tcp_async_command(void *arg)
 	//monitor the mode to see if it goes back to hibernate
 	//if so, send a wasp command packet to send tht ebaord to sleep
 	
-	//right now the wasp recieve threads have no stop condition
+	//the wasp board tcp serve doesnt check the content so what we send is irrelvant
+	//just send a small buffer
 	
 	//tcp setup
+	int i;
+	int sockfd = 0;
+	int n = 0;
+	char buff[10];
+	struct sockaddr_in serv_addr;
+	memset(buff, '0', sizeof(buff));
+	sprintf(buff, "HIBERNATE"); //cheeky little message
+	memset(&serv_addr, '0', sizeof(serv_addr));
 	
+	if ((sockfd = socket (AF_INET, SOCK_STREAM, 0)) < 0)
+	{
+		perror("socket");
+		exit(-1);
+	}
+	
+	serv_addr.sin_family = AF_INET;
+	serv_addr.sin_port = htons (60005); //wasp tcp serve listens at 60005
 	
 	FILE *modefile;
 	enum testmode cur_mode;
-	
-	
 	int printed = 0;
+	
 	while(1)
 	{
 		//check the mode
@@ -361,12 +440,47 @@ void *tcp_async_command(void *arg)
 		{
 			if(!printed)
 			{
+				//let the print thread know with a flag here
 				printf("test done, sending boards back to sleep\n");
 				//have this in the print funct
 				printed = 1;
 			}
+			
+			//if we are here the user has switched the mode back to hibernate
+			//so we want to send ALL the connected boards to sleep.
+			
+			for(int j = 0; j < n_connected; j++)
+			{
+				//iterate thorugh all the connected boards to send the sleep command
+				
+				//turn the ip strings into proper binary adresses
+				if (inet_pton (AF_INET, ips[j], &serv_addr.sin_addr) <= 0)
+				{
+					perror("inet_pton");
+					exit(-1);
+				}
+				
+				//connect to the server
+				//potientially this wont work when called second time - check this 
+				if (connect (sockfd, (struct sockaddr *)&serv_addr, sizeof (serv_addr)) < 0)
+				{
+					perror("connect");
+					exit(-1);
+				}
+				
+				//send the sleep message
+				write(sockfd, buff, sizeof(buff));
+				//move on to the next connected board
+			}
+			
+			//if we got here, that means that all the baords have been sent to sleep
+			//close the socket
+			close(sockfd);
+			
+			//we are done, so we can return to the main thread to exit
+			return NULL;
 		}
-		//send a sleep packet
+		
 		sleep(5);
 	}
 }
@@ -575,7 +689,7 @@ void *wasp_recieve(void *arg)
 	//close all the files to finalize the data
 	for(int i = 0; i <  num_devices; i++)
 	{
-		fclose(outfiles[i]); //we are buffering a LOT of data
+		fclose(outfiles[i]); 
 	}
 	
 	return NULL;
