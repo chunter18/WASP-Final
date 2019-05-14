@@ -45,14 +45,74 @@ int thread_devices_found = 0;
 enum testmode{hibernate, initializing, testing}; //for printing the mode
 enum testmode mode;
 
+char *datadir;
 
-int main()
+
+int main(int argc, char *argv[])
 {
 		//main function is just the tcp server until the test starts.
 		//only then does it spawn the udp threads, and the main function
 		//becomes an async tcp "client", connecting to individual boards
 		//to send them commands via tcp.
 		
+		if(argc > 2)
+		{
+			printf("too many args\n");
+			printf("usage: ./wasp datadir/\n");
+			exit(-1);
+		}
+		
+		if(argc == 1) //no args
+		{
+			printf("didnt get any args. please specifiy a data directory\n");
+			exit(-1);
+			//common - want data dir in working directory.
+			//in that cass pass the argument . as the path.
+		}
+		
+		char *path = argv[1];
+		int arglen = strlen(path);
+		
+		if(arglen > 100)
+		{
+			printf("Error: data directory path too long\n");
+			exit(-1);
+		}
+		if(path[arglen-1] == '/')
+		{
+			datadir = path;
+			//trailing slash present, dont need to sanitize the input
+		}
+		else
+		{
+			//didnt get a trailing slash so one needs to be added
+			datadir = (char*) malloc((arglen+1)*sizeof(char));
+			strncpy(datadir, path, arglen);
+			datadir[(arglen)] = '/';
+			datadir[(arglen+1)] = '\0';
+		}
+		
+		//make the directory
+		DIR* dir = opendir(datadir);
+		if(dir)
+		{
+			printf("directory %s already exists, server will use it\n", datadir);
+		}
+		else if(ENOENT == errno)
+		{
+			//printf("Directory %s not found, creating it\n", datadir);
+			int status = mkdir(datadir, 0777); //read write and exe permission to everybody
+			if(status != 0)
+			{
+				perror("mkdir");
+				exit(-1);
+			}
+		}
+		else
+		{
+			perror("opendir");
+			exit(-1);
+		}
 		
 		for(int i = 0; i < 300; i++)
 			ports[i] = 0;
@@ -63,31 +123,6 @@ int main()
 		modefile = fopen("mode", "wb");
 		fprintf(modefile, "%d", mode);
 		fclose(modefile);
-		
-		
-		//memcpy(ips[0], "", 14);
-		//memcpy(macs[0], "", 6); 
-		//uint16_t portz = 50001;
-		//ports[0] = portz;
-		//pthread_t recz;
-		//pthread_create(&recz, NULL, wasp_recieve, &portz);
-		//pthread_join(recz, NULL);
-		
-		
-		//create a data directory based on func args
-		/*
-		struct stat st = {0};
-		if(argc == 1)
-		{
-			if (stat(argv[1], &st) == -1) 
-				mkdir(argv[1], 0777);
-		}
-		else
-		{
-			if (stat("data/", &st) == -1) 
-				mkdir("data/", 0777);
-		}
-		*/
 		
 		
 		//NOTE: we can create files that are pure macs like 00:a0:50:c4:26:a1.csv on linux
@@ -151,7 +186,7 @@ int main()
 			if(ready)
 			{
 				connfd = accept (listenfd, (struct sockaddr*)&client_addr, &client_len);  //create connection socket when host connects.
-				printf("rec");
+				//printf("rec");
 				//receive first packet 
 				read (connfd, buff, sizeof (buff));
 				memcpy(init.mac, buff, sizeof(init.mac));
@@ -271,13 +306,16 @@ int main()
 		// in the future we should be able to make the number of reciveing processes equal to number
 		//of cores as a runtime parameter
 		uint16_t port1 = 50001;
-		//int port2 = 50002;
-		//int port3 = 50003;
-		//int port4 = 50004;
+		uint16_t port2 = 50002;
+		uint16_t  port3 = 50003;
+		uint16_t  port4 = 50004;
 		pthread_create(&rec1, NULL, wasp_recieve, &port1);
-		//pthread_create(&rec2, NULL, wasp_recieve, &port2);
-		//pthread_create(&rec3, NULL, wasp_recieve, &port3);
-		//pthread_create(&rec4, NULL, wasp_recieve, &port4);
+		if(n_connected >=2)
+			pthread_create(&rec2, NULL, wasp_recieve, &port2);
+		if(n_connected >= 3)
+			pthread_create(&rec3, NULL, wasp_recieve, &port3);
+		if(n_connected >= 4)
+			pthread_create(&rec4, NULL, wasp_recieve, &port4);
 		
 		sleep(3); //wait for threads to enter their loops
 		start_test(); //blast broadcast message 
@@ -290,6 +328,9 @@ int main()
 		
 		
 		pthread_join(rec1, NULL); //dont return from main until we are done!!!
+		pthread_join(rec2, NULL); //dont return from main until we are done!!!
+		pthread_join(rec3, NULL); //dont return from main until we are done!!!
+		pthread_join(rec4, NULL); //dont return from main until we are done!!!
 		return 0;
 }
 
@@ -404,7 +445,10 @@ void *wasp_recieve(void *arg)
 			//turn the mac into a string
 			sprintf(macaddrstr, "%02x:%02x:%02x:%02x:%02x:%02x", macs[i][0],macs[i][1],macs[i][2],macs[i][3],macs[i][4],macs[i][5]);
 			sprintf(filename, "%s.csv", macaddrstr); //create the filename
-			printf("making a file called %s", filename);
+			//printf("making a file called %s", filename);
+			char *fullpath = (char*) malloc((strlen(datadir)+21)*sizeof(char));
+			sprintf(fullpath, "%s%s", datadir, filename);
+			
 			//add the mac and ip to our local lists
 			memcpy(macs_local[num_devices], macs[i], sizeof(macs[i]));
 			memcpy(ips_local[num_devices], ips[i], sizeof(ips[i]));
@@ -412,7 +456,7 @@ void *wasp_recieve(void *arg)
 			global_indexes[num_devices] = i;
 			
 			//open the file and print the csv header
-			outfiles[num_devices] = fopen(filename, "wb");
+			outfiles[num_devices] = fopen(fullpath, "wb");
 			fprintf(outfiles[num_devices], "count,isotime,nanotime,samples\n");
 			num_devices++;
 			thread_devices_found++;
