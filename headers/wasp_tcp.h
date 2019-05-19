@@ -12,6 +12,8 @@ typedef struct
     uint16_t test_codes;
     uint8_t version_major;
     uint8_t version_minor;
+    //add a field to let server know the battery size as set during build
+    //this will allow for us to support multiple batt sizes for our system, especially for the disqual algo
 }init_packet_t;
 
 typedef struct
@@ -20,8 +22,9 @@ typedef struct
     uint8_t send_to_hibernate;
     uint8_t switch_network;
     uint8_t test_begin;
-    uint8_t init_self_test_proc;
-    uint8_t wireless; //placeholder
+    uint8_t calibrate; //used to be more self tests (init_self_test_proc)
+    uint8_t wireless; //placeholder for wireless mode stuff?
+    //possibly have more self tests in a variable
     uint16_t port;
 }init_response_t; //response message to client device registration
 
@@ -43,3 +46,4 @@ wiced_result_t received_data_callback( wiced_tcp_socket_t* socket, void* arg );
 wiced_mac_t get_mac(void);
 wiced_result_t tcp_connect(void);
 init_response_t register_with_server(init_packet_t send_packet);
+wiced_result_t send_calibration_data(float data);

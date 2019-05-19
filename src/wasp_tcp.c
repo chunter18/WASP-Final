@@ -220,7 +220,7 @@ init_response_t register_with_server(init_packet_t send_packet)
     resp.send_to_hibernate = rx_data[1];
     resp.switch_network = rx_data[2];
     resp.test_begin = rx_data[3];
-    resp.init_self_test_proc = rx_data[4];
+    resp.calibrate = rx_data[4];
     resp.wireless = rx_data[5];
     resp.port = ((uint16_t)rx_data[7] << 8) | rx_data[6]; //these are reversed because network order is reversed
 
@@ -235,5 +235,43 @@ init_response_t register_with_server(init_packet_t send_packet)
     return resp;
 }
 
+wiced_result_t send_calibration_data(float cal_data)
+{
+    wiced_result_t           result;
+    wiced_packet_t*          packet;
+    char*                    tx_data;
+    uint16_t                 available_data_length;
+
+    /* Create the TCP packet. Memory for the tx_data is automatically allocated */
+    if (wiced_packet_create_tcp(&tcp_client_socket, 30, &packet, (uint8_t**)&tx_data, &available_data_length) != WICED_SUCCESS)
+    {
+        WPRINT_APP_INFO(("TCP packet creation failed\n"));
+        return WICED_ERROR;
+    }
+
+    /* Write the message into the packet*/
+    memcpy(tx_data, &cal_data, sizeof(cal_data));
+
+    /* Set the end of the data portion */
+    wiced_packet_set_data_end(packet, (uint8_t*)tx_data + sizeof(cal_data));
+
+    /* Send the TCP packet */
+    if (wiced_tcp_send_packet(&tcp_client_socket, packet) != WICED_SUCCESS)
+    {
+        WPRINT_APP_INFO(("Failed to send calibration packet to the server.\n"));
+
+        /* Delete packet, since the send failed */
+        wiced_packet_delete(packet);
+
+        /* Close the connection */
+        wiced_tcp_disconnect(&tcp_client_socket);
+        return WICED_ERROR;
+    }
+
+    //wiced_tcp_disconnect(&tcp_client_socket);
+
+    return WICED_SUCCESS;
+
+}
 
 

@@ -23,6 +23,7 @@ uint16_t random_sample(void); //leaving in case we still want to send dummy pack
 
 //these are here solely for the purpose of server debug tests, not intended to be used elsewhere
 wiced_result_t tx_udp_packet_known_good();
+wiced_result_t tx_udp_packet_variable_rate();
 wiced_result_t tx_udp_packet();
 wiced_result_t package_sample();
 wiced_result_t send(wasp_pckt_t pckt);

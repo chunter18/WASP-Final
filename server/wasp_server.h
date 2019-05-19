@@ -1,4 +1,8 @@
-#include <inttypes.h>
+#include <inttypes.h> //can declare sized ints in there
+//for being able to delcare error_t for the arg parsing stuff
+#include <stdio.h>
+#include <argp.h>
+
 
 typedef struct //not sure if this is somewhere. here for ease of use/def 
 {
@@ -42,13 +46,14 @@ typedef struct
 	uint8_t send_to_hibernate;
 	uint8_t switch_network;
 	uint8_t test_begin;
-	uint8_t init_self_test_proc;
+	uint8_t calibrate;
 	uint8_t wireless; //placeholder
 	uint16_t port; //for ease just going to send the actual port number
 }init_response_t; //response message to client device
 
 #define WASP_TCP_SERVER_PORT 50005
 #define WASP_TCP_ASYNC_PORT 60005
+
 
 int check_update(int major, int minor);
 int is_testseq_init(void);
@@ -60,3 +65,5 @@ void *print_data(void *arg);
 void start_test(void);
 void *wasp_recieve(void *arg);
 void *tcp_async_command(void *arg);
+static error_t parse_opt (int key, char *arg, struct argp_state *state);
+void disqualify(void);

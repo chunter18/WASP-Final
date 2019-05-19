@@ -3,9 +3,12 @@
 void spi_startup(void *arg);
 void sample_main(void *arg);
 
+void run_calibration(void *arg);
+
 wiced_queue_t spi_starup_queue;
 wiced_thread_t spi_sample_thread;
 wiced_thread_t udp_network_thread;
+
 
 void application_start( )
 {
@@ -136,7 +139,29 @@ void application_start( )
         //error, something went wrong
         WPRINT_APP_INFO( ( "ERROR PORT NOT ASSIGNED\n") );
         //maybe send back to hib in this case
+        send_to_hibernate();
         return;
+    }
+
+    //check whether we got the command to calibrate
+    if(server_init_cmds.calibrate == 1)
+    {
+        WPRINT_APP_INFO( ( "Got calibration command.\n") );
+        WPRINT_APP_INFO( ( "Calibration will begin in 30sec.\n") );
+
+        result = blink(1, 500, &timer); //blink the red led until the test starts
+        wiced_rtos_delay_milliseconds(30000);
+        stop_blink(1, 0, &timer);
+
+        result = blink(3, 500, &timer); //blink both until calibration is done
+        WPRINT_APP_INFO( ( "Running calibration test.\n") );
+        //calibration involves sampling, need to do another thread
+
+        wiced_thread_t calibration_thread;
+        result = wiced_rtos_create_thread (&calibration_thread, 0, "", run_calibration, 10*1024, 0);
+        wiced_rtos_thread_join(&calibration_thread); //wait for it to finish
+
+        stop_blink(1, 1, &timer);
     }
 
     //check whether to go back to sleep or not.
@@ -225,6 +250,62 @@ void application_start( )
 
     wiced_rtos_thread_join(&spi_sample_thread);
     */
+
+    return;
+}
+
+void run_calibration(void *arg)
+{
+    /*
+     * this function (run in its own thread cause it does spi) is responsible
+     * for taking 1000 samples and averaging them, as well as sending that average
+     * back to the server so it can store that data for post processing.
+     */
+
+    uint16_t samples[1000]; //if we want to do more than this we will need to a running average
+                            //we dont want to consume too much stack (wed need to give it more)
+
+    //spi variables
+    uint16_t cur_sample = 0;
+    int16_t nsegments = 2;
+    wiced_spi_message_segment_t message[1];
+    uint8_t txbuf[2], rxbuf[2];
+    txbuf[0] = 0xFF;
+    txbuf[1] = 0xFF;
+    message[0].tx_buffer = txbuf;
+    message[0].rx_buffer = rxbuf;
+    message[0].length = 2;
+
+    for(int i = 0; i < 1000; i++)
+    {
+        wiced_gpio_output_high(WICED_GPIO_34);
+        wiced_gpio_output_high(WICED_GPIO_34);
+        wiced_gpio_output_low(WICED_GPIO_34);
+        if (wiced_spi_transfer(&spi_device , message, nsegments)!=WICED_SUCCESS)
+        {
+            //will need to retry this sample
+            i--;
+        }
+        cur_sample = ((uint16_t)rxbuf[0] << 8) | rxbuf[1];
+        samples[i] = cur_sample;
+        wiced_rtos_delay_milliseconds(1000); //what should this be
+    }
+
+    //got the data, do the average
+    float sum = 0;
+    float average = 0;
+
+    for(int j = 0; j < 1000; j++)
+    {
+        sum += samples[j];
+    }
+
+    average = sum/1000;
+
+    //send the average to the server
+    //we shouldnt have dissconected, so we should just be able to send the data back
+
+    send_calibration_data(average);
 
     return;
 }

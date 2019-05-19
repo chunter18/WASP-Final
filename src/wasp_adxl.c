@@ -9,7 +9,7 @@
 #include "../headers/WASP_LED.h"
 #include "wiced_osl.h"
 
-#define EXSERVER_IP_ADDRESS MAKE_IPV4_ADDRESS(192,168,50,193)
+//#define EXSERVER_IP_ADDRESS MAKE_IPV4_ADDRESS(192,168,50,193)
 
 wiced_spi_device_t spi_device =
 {
@@ -21,15 +21,19 @@ wiced_spi_device_t spi_device =
 };
 
 int over_range = 0; //over range flag
+uint64_t time_of_overrange;
 
 void over_range_isr(void* arg)
 {
     UNUSED_PARAMETER(arg);
     //WPRINT_APP_INFO(("OVER RANGE DETECTED!!\n"));
-    over_range = 1;
 
-    //take the time, set the adxl to standby to protect it
-    //do this once - check the falg state first to avoid successive shit
+    if(over_range != 1)
+    {
+        set_adxl_standby(); //set the adxl to standby to protect it
+        over_range = 1; //only do this once - this is alos visible to any other functions that are looking
+        time_of_overrange = wiced_get_nanosecond_clock_value();
+    }
 }
 
 void adc_adxl_setup(void)

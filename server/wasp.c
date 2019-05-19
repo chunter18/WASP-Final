@@ -22,6 +22,10 @@ Team: Tyler Hack and Daniel Webber
 #include <limits.h>
 #include <pthread.h> //need to add -lpthread to make command
 #include <dirent.h>
+#include <argp.h>
+#include <net/if.h>
+#include <sys/ioctl.h>
+
 #include "wasp_server.h" //defines and stuff
 
 
@@ -41,7 +45,7 @@ int n_ready = 0;
 int threads_running = 0;
 int thread_devices_found = 0;
 int device_err_flag = 0;
-
+char *cailbration_file_name;
 enum testmode{hibernate, initializing, testing}; //for printing the mode
 enum testmode mode;
 
@@ -53,7 +57,48 @@ typedef struct
 	int selected;
 	int selected_num;
 } thread_args_t;
-//will need to add another line to the mode file
+
+//comand line interface vars
+const char *argp_program_version = "WASP server 1.0";
+const char *argp_program_bug_address = "<chunter@scu.edu>";
+
+//defining the possible arguments
+struct arguments
+{
+//  char *args[2];          // no required args 
+	int verbose;              // verbose flag - maybe adds/removes extra debug stuff from print thread 
+	int calibration;          // calibration flag - marks that you want to run calibration step on each board
+	char *datadir;            // Argument for -d
+	char *niface;			  // network interface to look at ip - will be used for implementing ssdp or the like	
+};
+
+//these are the definitions of the args defined above
+//order is {NAME, KEY, ARG, FLAGS, DOC}
+static struct argp_option options[] =
+{
+	{"verbose", 	'v', 0, 0, "Add extra debug information to print"},
+	{"calibrate", 	'c', 0, 0, "Run calibration step on first connect of each board"},
+	{"Data Dir",  	'd', "DATADIR", 0, "Custom directory for all data to be written to"},
+	{"Net iface",   'n', "NIFACE", 0, "Network inteface being used"},
+	{0} //not sure why null is needed, keeping for saftey
+};
+
+//description of non optional args - we have non, so those are blank
+static char args_doc[] = "";
+
+//program doc string
+static char doc[] =
+"WASP server -- Host code to interact with WASP modules for acceleration tests.\vCreated by Cole Hunter, Tyler Hack, and Daniel Webber";
+
+//actual argp structure
+static struct argp argp = {options, parse_opt, args_doc, doc};
+
+typedef struct
+{
+	uint8_t mac[6];
+	int sock_fd;
+}calib_thread_args_t;
+	
 
 //one interesting thing to add would be server discovery insteaed of using a fixed server ip in the board code
 int main(int argc, char *argv[])
@@ -63,39 +108,35 @@ int main(int argc, char *argv[])
 		//becomes an async tcp "client", connecting to individual boards
 		//to send them commands via tcp.
 		
-		if(argc > 2)
-		{
-			printf("too many args\n");
-			printf("usage: ./wasp datadir/\n");
-			exit(-1);
-		}
+		//comand line interface stuff.
+		struct arguments arguments;
+		// setting argument defaults
+		arguments.datadir = "./";
+		arguments.niface = "eth0";
+		arguments.calibration = 0; //setting default as false - makes testing random shit quicker for us
+								   //the defualt should be true for the final system used by the engineers
+		arguments.verbose = 0;
 		
-		if(argc == 1) //no args
-		{
-			printf("didnt get any args. please specifiy a data directory\n");
-			exit(-1);
-			//common - want data dir in working directory.
-			//in that cass pass the argument . as the path.
-		}
+		//actual argument parsing
+		argp_parse (&argp, argc, argv, 0, 0, &arguments);
 		
-		char *path = argv[1];
-		int arglen = strlen(path);
+		int arglen = strlen(arguments.datadir);
 		
 		if(arglen > 100)
 		{
 			printf("Error: data directory path too long\n");
 			exit(-1);
 		}
-		if(path[arglen-1] == '/')
+		if(arguments.datadir[arglen-1] == '/')
 		{
-			datadir = path;
+			datadir = arguments.datadir;
 			//trailing slash present, dont need to sanitize the input
 		}
 		else
 		{
 			//didnt get a trailing slash so one needs to be added
 			datadir = (char*) malloc((arglen+1)*sizeof(char));
-			strncpy(datadir, path, arglen);
+			strncpy(datadir, arguments.datadir, arglen);
 			datadir[(arglen)] = '/';
 			datadir[(arglen+1)] = '\0';
 		}
@@ -122,6 +163,7 @@ int main(int argc, char *argv[])
 			exit(-1);
 		}
 		
+		
 		for(int i = 0; i < 300; i++)
 			ports[i] = 0;
 		printf("listening for connections\n\n");
@@ -136,10 +178,26 @@ int main(int argc, char *argv[])
 		
 		//create a file to select the board to send data for graphing
 		//we could put this in the mode file, but we have to add a loop to count the lines or change the read structure
-		FILE *graphfile;
-		graphfile = fopen("graph", "wb");
-		fprintf(graphfile, "%d", 0);
-		fclose(graphfile);
+		//FILE *graphfile;
+		//graphfile = fopen("graph", "wb");
+		//fprintf(graphfile, "%d", 0);
+		//fclose(graphfile);
+		
+		if(arguments.calibration == 1)
+		{
+			//create a calibration file for storing the calibration data returned by the boards
+			
+			FILE *calibfile;
+			//this file is used by the post processing step, so it makes sense to place it in the data dir
+			char *fullpath = (char*) malloc((strlen(datadir)+16)*sizeof(char));
+			sprintf(fullpath, "%s%s", datadir, "calibration.data");
+			cailbration_file_name = fullpath;
+			calibfile = fopen(cailbration_file_name, "wb");
+			//writing a little header
+			fprintf(calibfile, "%s", "device, calibration value\n");
+			fclose(calibfile);
+		}
+		calib_thread_args_t t_args;
 		
 		//initialize the table print thread
 		pthread_t print_thread;
@@ -189,6 +247,17 @@ int main(int argc, char *argv[])
 		time_t timer_begin_time;
 		time_t timer_now;
 		
+		//get the host ip - evtually we will use for an sdp protocol
+		//the iface is set via arg for now with the default being eth0
+		struct ifreq ifr;
+		ifr.ifr_addr.sa_family = AF_INET;
+		strncpy(ifr.ifr_name, "eth0", IFNAMSIZ-1);
+		if( (ioctl(listenfd, SIOCGIFADDR, &ifr)) < 0)
+		{
+			perror("ioctl");
+			exit(-1);
+		}
+		//printf("server addr is %s\n", inet_ntoa(((struct sockaddr_in *)&ifr.ifr_addr)->sin_addr));
 		
 		while(1)
 		{
@@ -234,6 +303,7 @@ int main(int argc, char *argv[])
 					//add the ip and mac to out simple LUT
 					memcpy(ips[n_connected], addr_buf, sizeof(addr_buf));
 					memcpy(macs[n_connected], (init.mac), sizeof(init.mac));
+					
 					time(&rawtimes[n_connected]);
 					battery_levels[n_connected] = init.battery_level;
 					self_test_statuses[n_connected] = init.test_codes;
@@ -241,17 +311,25 @@ int main(int argc, char *argv[])
 					//printf("port assigned is %d, going in index %d", aport, n_connected);
 					ports[n_connected] = aport;
 					response.port = ports[n_connected];
+					if(arguments.calibration == 1)
+					{
+						response.calibrate = 1;
+						memcpy(t_args.mac, (init.mac), sizeof(init.mac)); //copy the mac into the cali thread args
+					}
+					else
+						response.calibrate = 0;
 					n_connected++;
 				}
 				else //found it already
 				{
 					//possible that we would need to update the ip
 					memcpy(ips[index], addr_buf, sizeof(addr_buf));
-					printf("bleh");
+					//printf("bleh");
 					time(&rawtimes[index]);
 					battery_levels[index] = (int)init.battery_level;
 					self_test_statuses[index] = init.test_codes;
 					response.port = ports[index];
+					response.calibrate = 0;
 					if(timer_started == 1)
 						n_ready++; //find num ready to test
 				}
@@ -259,17 +337,21 @@ int main(int argc, char *argv[])
 				response.switch_network = check_switch_net();
 				response.send_to_hibernate = is_testseq_init();
 				response.test_begin = !(is_testseq_init());
-				response.init_self_test_proc = check_need_selftest(init.test_codes);
+				//response.init_self_test_proc = check_need_selftest(init.test_codes); //changed to calibrate command
 				response.wireless = set_wireless_modes();
 
 				memcpy(sendbuffer, &(response.fetch_update_command), 1);
 				memcpy(sendbuffer+1, &(response.send_to_hibernate), 1);
 				memcpy(sendbuffer+2, &(response.switch_network), 1);
 				memcpy(sendbuffer+3, &(response.test_begin), 1);
-				memcpy(sendbuffer+4, &(response.init_self_test_proc), 1);
+				memcpy(sendbuffer+4, &(response.calibrate), 1);
 				memcpy(sendbuffer+5, &(response.wireless), 1);
 				memcpy(sendbuffer+6, &(response.port), 2);
 				int x = write(connfd, sendbuffer, sizeof(sendbuffer));
+				if(x != sizeof(sendbuffer))
+					fprintf(stderr,"partial write");
+				
+				//need to spawn a thread to wait and recieve the calibration data.
 				close(connfd);	//close connection socket once write has finished
 			}
 			else
@@ -342,7 +424,7 @@ int main(int argc, char *argv[])
 		
 		//spawn the UDP threads to let them each spin up
 		pthread_t rec1, rec2, rec3, rec4; //4 threads for 4 cores
-		thread_args_t arg1, arg2, arg3, arg4;
+		//thread_args_t arg1, arg2, arg3, arg4;
 		int thread2_started = 0;
 		int thread3_started = 0;
 		int thread4_started = 0;
@@ -354,9 +436,9 @@ int main(int argc, char *argv[])
 		uint16_t  port4 = 50004;
 		
 		//set these based on the mode file
-		arg1.port = port1;
-		arg1.selected = 1;
-		arg1.selected_num = 1;
+		//arg1.port = port1;
+		//arg1.selected = 1;
+		//arg1.selected_num = 1;
 		
 		pthread_create(&rec1, NULL, wasp_recieve, &port1);
 		if(n_connected >=2)
@@ -674,7 +756,7 @@ void *wasp_recieve(void *arg)
 		packet_counts_local[index]++;
 		if(packet_counts_local[index]==10000)
 		{
-			packet_counts_local[index]==0;
+			packet_counts_local[index]=0;
 			packet_counts[global_indexes[index]]++;
 		}
 		
@@ -779,8 +861,13 @@ void *print_data(void *arg) //numprint is num connected clients
 			printf("%02x:", macs[j][4]);
 			printf("%02x  |", macs[j][5]);
 			printf("%-15d|", battery_levels[j]); //batt level - 15 
-			if(self_test_statuses[j] == 7)
+			if( (self_test_statuses[j] == 7) || (self_test_statuses[j] == 6))
+			{
+				//could be 6 or 7, both are pass
+				//diff is adc reset didnt get right arg back from the transfer
+				//we dont care as long as self test passed and high z got set.
 				printf("%-11s|", "PASS"); //st - 11 spaces
+			}
 			else
 				printf("%-11s|", "FAIL"); //st - 11 spaces
 			
@@ -874,7 +961,7 @@ int check_switch_net(void)
 	*/
 }
 
-int check_need_selftest(uint16_t testcode)
+int check_need_selftest(uint16_t testcode) //deprecated
 {
 	//based on the values in the testcode field we would have logic for setting the self test procedure.
 	//since we havent implemented that quite yet, just return 0 (ignore).
@@ -898,4 +985,65 @@ uint16_t assign_port(void)
 		index++;
 	return valid_udp_ports[index];
 	
+}
+
+void disqualify(void)
+{
+	//this is the basis for a test disqualification
+	//to be accurate, we will need a test duration
+	//we will assume 20 min, but this should be a test operator argument
+	//we will also need the battery size in milliamps
+	//TODO - make the battery level an arg
+	//TODO make the return val a bool
+	//TODO if adding 5g, need to check if the device is on 5g
+	
+	int battery_level = 87;
+	int battery_mah = 2500;
+	int test_time_min = 20;
+	
+	float battery_percent = battery_level/100;
+	float cur_mah = battery_percent*battery_mah;
+	
+	//we want to get the test time 
+	float ma_2pt4g = 443.12;
+	float ma_5g = 347.97;
+	
+	float hrs_2pt4g = cur_mah/ma_2pt4g;
+	float hrs_5g = cur_mah/ma_5g;
+	
+	float min_2pt4g = hrs_2pt4g*60;
+	float min_5g = hrs_5g*60;
+	
+	if( (min_2pt4g > test_time_min) || (min_5g > test_time_min))
+	{
+		return; //return true
+	}
+	
+	return; //return false
+}
+
+//parser function, param order fixed by argp
+static error_t parse_opt (int key, char *arg, struct argp_state *state)
+{
+	struct arguments *arguments = state->input;
+
+	switch (key)
+	{
+		case 'v':
+			arguments->verbose = 1;
+			break;
+		case 'c':
+			arguments->calibration = 1;
+			break;
+		case 'd':
+			arguments->datadir = arg;
+			break;
+		case 'n':
+			arguments->niface = arg;
+			break;
+		default:
+			return ARGP_ERR_UNKNOWN;
+	}
+	
+	return 0;
 }

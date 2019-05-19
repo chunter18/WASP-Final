@@ -325,3 +325,101 @@ wiced_result_t send(wasp_pckt_t pckt)
 
     return WICED_SUCCESS;
 }
+
+wiced_result_t tx_udp_packet_variable_rate(int delay)
+{
+    //im using osl_udelay because its a guaranteed delay of x microsec (rtos guaruntees x microsec or more)
+    //you could possibly use the rtos cause there we aren't using a lot of threads, but it introduces variability
+
+    //TODO - find these numbers out
+    //50khz nominal - delay of x usec
+    //40khz nominal - delay of x usec
+    //25khz nominal - delay of x usec
+    //20khz nominal - delay of x usec
+    //10khz nominal - delay of x usec
+    //5khz nominal - delay of x usec
+    //1khz nominal - delay of x usec
+
+    wiced_packet_t*          packet;
+    char*                    udp_data;
+    wasp_pckt_t              raw_data;
+    uint16_t                 available_data_length;
+    wiced_iso8601_time_t     iso8601_time;
+    int tx_count = 0;
+    uint16_t sample = 0;
+    int16_t nsegments = 2;
+    wiced_spi_message_segment_t message[1];
+    uint8_t txbuf[2], rxbuf[2];
+    txbuf[0] = 0xFF;
+    txbuf[1] = 0xFF;
+    message[0].tx_buffer = txbuf;
+    message[0].rx_buffer = rxbuf;
+    message[0].length = 2;
+    const wiced_ip_address_t INITIALISER_IPV4_ADDRESS( target_ip_addr, SERVER_IP_ADDRESS );
+
+
+    int firstsamp = 0;
+    int lastsamp = 0;
+    while(1)
+    {
+        /* Create the UDP packet */
+        if ( wiced_packet_create_udp( &udp_socket, 512, &packet, (uint8_t**) &udp_data, &available_data_length ) != WICED_SUCCESS )
+        {
+            WPRINT_APP_INFO( ("UDP tx packet creation failed\n") );
+            return WICED_ERROR;
+        }
+
+        /* fiddling with the data */
+        raw_data.packet_count = tx_count++;
+        wiced_time_get_iso8601_time( &iso8601_time );
+        raw_data.time_start = iso8601_time;
+        raw_data.nano_time_start = wiced_get_nanosecond_clock_value();
+
+        firstsamp = 1;
+        lastsamp = 0;
+        for(int i = 0; i < 236; i++)
+        {
+            if(firstsamp)
+            {
+                firstsamp = 0;
+            }
+            else
+                osl_udelay(20);
+
+            wiced_gpio_output_high(WICED_GPIO_34);
+            wiced_gpio_output_high(WICED_GPIO_34);
+            wiced_gpio_output_low(WICED_GPIO_34);
+            if (wiced_spi_transfer(&spi_device , message, nsegments)!=WICED_SUCCESS)
+            {
+                //return WICED_ERROR;
+                //osl_udelay(1);
+            }
+            sample = ((uint16_t)rxbuf[0] << 8) | rxbuf[1];
+            raw_data.samples[i] = sample;
+
+            if(i == 235)
+                lastsamp = 1;
+            if(!lastsamp)
+                osl_udelay(20);
+        }
+
+        memcpy(udp_data, &(raw_data.packet_count), ctsize);
+        memcpy(udp_data+ctsize, &(raw_data.time_start), isosize);
+        memcpy(udp_data+ctsize+isosize, &(raw_data.nano_time_start), nsize);
+        memcpy(udp_data+ctsize+isosize+nsize, (raw_data.samples), ssize);
+
+        /* Set the end of the data portion */
+        wiced_packet_set_data_end( packet, (uint8_t*) udp_data + udptotal );
+
+        /* Send the UDP packet */
+        if ( wiced_udp_send( &udp_socket, &target_ip_addr, 50001, packet ) != WICED_SUCCESS )
+        {
+            WPRINT_APP_INFO( ("UDP packet send failed\n") );
+            wiced_packet_delete( packet ); /* Delete packet, since the send failed */
+            return WICED_ERROR;
+        }
+
+        wiced_watchdog_kick();
+    }
+    return WICED_SUCCESS;
+}
