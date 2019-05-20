@@ -160,7 +160,7 @@ void application_start( )
         wiced_thread_t calibration_thread;
         result = wiced_rtos_create_thread (&calibration_thread, 0, "", run_calibration, 10*1024, 0);
         wiced_rtos_thread_join(&calibration_thread); //wait for it to finish
-
+        WPRINT_APP_INFO( ( "Finished calibrating\n") );
         stop_blink(1, 1, &timer);
     }
 
@@ -262,8 +262,9 @@ void run_calibration(void *arg)
      * back to the server so it can store that data for post processing.
      */
 
-    uint16_t samples[1000]; //if we want to do more than this we will need to a running average
+    //uint16_t samples[1000]; //if we want to do more than this we will need to a running average
                             //we dont want to consume too much stack (wed need to give it more)
+
 
     //spi variables
     uint16_t cur_sample = 0;
@@ -276,6 +277,9 @@ void run_calibration(void *arg)
     message[0].rx_buffer = rxbuf;
     message[0].length = 2;
 
+    float sum = 0;
+    float average = 0;
+
     for(int i = 0; i < 1000; i++)
     {
         wiced_gpio_output_high(WICED_GPIO_34);
@@ -287,20 +291,17 @@ void run_calibration(void *arg)
             i--;
         }
         cur_sample = ((uint16_t)rxbuf[0] << 8) | rxbuf[1];
-        samples[i] = cur_sample;
-        wiced_rtos_delay_milliseconds(1000); //what should this be
+        //samples[i] = cur_sample;
+        sum += (float)cur_sample;
+        WPRINT_APP_INFO( ( "sample = %d, sum = %f\n", cur_sample, sum) );
+        wiced_rtos_delay_milliseconds(100); //what should this be
     }
 
     //got the data, do the average
-    float sum = 0;
-    float average = 0;
 
-    for(int j = 0; j < 1000; j++)
-    {
-        sum += samples[j];
-    }
+    average = sum/1000.0;
 
-    average = sum/1000;
+    WPRINT_APP_INFO( ( "calculated averagae = %f\n", average) );
 
     //send the average to the server
     //we shouldnt have dissconected, so we should just be able to send the data back

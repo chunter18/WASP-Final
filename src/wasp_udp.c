@@ -7,12 +7,19 @@
 #include "../headers/wasp_threads.h"
 #include "../headers/wasp_adxl.h"
 #include "../headers/WASP_LED.h"
+#include "../headers/wasp_hibernate.h"
 #include "wiced_osl.h"
 
 
 wiced_udp_socket_t  udp_socket;
 wiced_udp_socket_t  udp_broadcast_rx_sock;
-//static uint32_t tx_count   = 0; //not needed i dont think
+uint8_t endianness = 1;
+wiced_udp_socket_t  sdp_udp_socket;
+wiced_ip_address_t s; //should be used by the main send function, set by the wasp_sdp
+//tcp will need this too!
+
+//TODO - make the tcp and udp send threads accept s ip as their target ip
+
 
 //like tcp, making these lengths constant so we dont calc them every time.
 size_t ctsize = 4;       //sizeof(raw_data.packet_count);
@@ -35,6 +42,154 @@ wiced_result_t init_udp(int port)
         return WICED_ERROR;
     }
     return WICED_SUCCESS;
+}
+
+void find_server(void)
+{
+    /* Create UDP socket */
+    if (wiced_udp_create_socket(&sdp_udp_socket, UDP_BROADCAST_PORT, WICED_STA_INTERFACE) != WICED_SUCCESS)
+    {
+       WPRINT_APP_INFO( ("UDP socket creation failed\n") );
+    }
+
+    for(int i = 0; i < 5; i++)
+    {
+        wiced_result_t result = wasp_service_discovery(); //sends the broadcast and gets back the server addr
+        if(result == WICED_SUCCESS)
+            break;
+        else
+        {
+            if(i == 4)
+            {
+                WPRINT_APP_INFO( ("server doesnt appear to be available, going to sleep\n") );
+                send_to_hibernate();
+            }
+            else
+                WPRINT_APP_INFO( ("no response from server, trying again\n") );
+        }
+    }
+
+    //got here, good to go
+}
+
+wiced_result_t wasp_service_discovery()
+{
+    wiced_packet_t*          packet;
+    char*                    udp_data;
+    uint16_t                 available_data_length;
+    const wiced_ip_address_t INITIALISER_IPV4_ADDRESS( target_ip_addr, BROADCAST_IP );
+
+    /* Create the UDP packet */
+    if ( wiced_packet_create_udp( &sdp_udp_socket, 30, &packet, (uint8_t**) &udp_data, &available_data_length ) != WICED_SUCCESS )
+    {
+        WPRINT_APP_INFO( ("UDP tx packet creation failed\n") );
+        return WICED_ERROR;
+    }
+
+    /* Write packet number into the UDP packet data */
+    sprintf( udp_data, "%s",  "WASP BOARD DISCOVERY" );
+
+    /* Set the end of the data portion */
+    wiced_packet_set_data_end( packet, (uint8_t*)udp_data + strlen(udp_data));
+
+    /* Send the UDP packet */
+    if ( wiced_udp_send( &sdp_udp_socket, &target_ip_addr, UDP_BROADCAST_PORT, packet ) != WICED_SUCCESS )
+    {
+        WPRINT_APP_INFO( ("UDP packet send failed\n") );
+        wiced_packet_delete( packet ); /* Delete packet, since the send failed */
+        return WICED_ERROR;
+    }
+
+    //once weve sent the packet, wait for server to respond
+    wasp_sdp_pckt_t pckt = rx_sdp_response();
+    if(pckt.result != WICED_SUCCESS)
+        return pckt.result;
+    else
+    {
+        //try to comm back with server
+        int numbers[4];
+
+        char* token = strtok(pckt.server_ip_str, ".");
+        //WPRINT_APP_INFO( ("got token %s\n", token) );
+        numbers[0] = atoi(token);
+        //WPRINT_APP_INFO( ("number is %d\n", numbers[0]) );
+        for(int i = 1; i < 4; i++)
+        {
+            token = strtok(NULL, ".");
+            //WPRINT_APP_INFO( ("got token %s\n", token) );
+            numbers[i] = atoi(token);
+            //WPRINT_APP_INFO( ("number is %d\n", numbers[i]) );
+        }
+
+        /* Create the UDP packet */
+        if ( wiced_packet_create_udp( &sdp_udp_socket, 30, &packet, (uint8_t**) &udp_data, &available_data_length ) != WICED_SUCCESS )
+        {
+            WPRINT_APP_INFO( ("UDP tx packet creation failed\n") );
+            return WICED_ERROR;
+        }
+        wiced_ip_address_t INITIALISER_IPV4_ADDRESS( server_ip_addr,\
+                            MAKE_IPV4_ADDRESS(numbers[0],numbers[1],numbers[2],numbers[3]) );
+
+        s = server_ip_addr; //set the server addr for other sends
+
+        /* NO ACK ON SERVER!
+        //send a quick ack
+        sprintf( udp_data, "%s",  "ready to work" );
+        wiced_packet_set_data_end( packet, (uint8_t*)udp_data + strlen(udp_data));
+
+
+        if ( wiced_udp_send( &sdp_udp_socket, &server_ip_addr, UDP_BROADCAST_PORT, packet ) != WICED_SUCCESS )
+        {
+            WPRINT_APP_INFO( ("UDP packet send failed\n") );
+            wiced_packet_delete( packet );
+            return WICED_ERROR;
+        }
+        */
+
+        return WICED_SUCCESS;
+    }
+}
+
+wasp_sdp_pckt_t rx_sdp_response()
+{
+    wiced_packet_t* packet;
+    char*           udp_data;
+    uint16_t        data_length;
+    uint16_t        available_data_length;
+    wasp_sdp_pckt_t pckt;
+    pckt.result = WICED_ERROR;
+
+    /* Wait for UDP packet */
+    wiced_result_t result = wiced_udp_receive( &sdp_udp_socket, &packet, 50 ); //50 is in milliseconds
+
+    if ( ( result == WICED_ERROR ) || ( result == WICED_TIMEOUT ) )
+    {
+        return pckt;
+    }
+
+    wiced_packet_get_data( packet, 0, (uint8_t**) &udp_data, &data_length, &available_data_length );
+
+    if (data_length != available_data_length)
+    {
+        WPRINT_APP_INFO(("Fragmented packets not supported\n"));
+        return pckt;
+    }
+
+    memcpy(&(pckt.endian), udp_data, 1);
+    memcpy((pckt.server_ip_str), udp_data+1, 16);
+
+    //this needs to be tested on a big endian machine though im pretty confident it will be correct.
+    //we may see the string be different
+
+    //WPRINT_APP_INFO( ("endian = %d\n", pckt.endian) );
+    //WPRINT_APP_INFO( ("ip = %s\n\n", pckt.server_ip_str) );
+    pckt.result = WICED_SUCCESS;
+
+    /* Delete packet as it is no longer needed */
+    wiced_packet_delete( packet );
+
+    endianness = (pckt.endian);
+    return pckt;
 }
 
 wiced_result_t send_wasp_packets(void* assigned_port)
@@ -174,6 +329,79 @@ wiced_result_t tx_udp_packet_known_good()
     message[0].tx_buffer = txbuf;
     message[0].rx_buffer = rxbuf;
     message[0].length = 2;
+
+    //the address will need to be changed for the udp sdp addr
+    const wiced_ip_address_t INITIALISER_IPV4_ADDRESS( target_ip_addr, SERVER_IP_ADDRESS );
+
+    while(1)
+    {
+        /* Create the UDP packet */
+        if ( wiced_packet_create_udp( &udp_socket, 512, &packet, (uint8_t**) &udp_data, &available_data_length ) != WICED_SUCCESS )
+        {
+            WPRINT_APP_INFO( ("UDP tx packet creation failed\n") );
+            return WICED_ERROR;
+        }
+
+        /* fiddling with the data */
+        raw_data.packet_count = tx_count++;
+        wiced_time_get_iso8601_time( &iso8601_time );
+        raw_data.time_start = iso8601_time;
+        raw_data.nano_time_start = wiced_get_nanosecond_clock_value();
+
+        for(int i = 0; i < 236; i++)
+        {
+            wiced_gpio_output_high(WICED_GPIO_34);
+            wiced_gpio_output_high(WICED_GPIO_34);
+            wiced_gpio_output_low(WICED_GPIO_34);
+            if (wiced_spi_transfer(&spi_device , message, nsegments)!=WICED_SUCCESS)
+            {
+                //return WICED_ERROR;
+                osl_udelay(1);
+            }
+            sample = ((uint16_t)rxbuf[0] << 8) | rxbuf[1];
+            raw_data.samples[i] = sample;
+        }
+
+        memcpy(udp_data, &(raw_data.packet_count), ctsize);
+        memcpy(udp_data+ctsize, &(raw_data.time_start), isosize);
+        memcpy(udp_data+ctsize+isosize, &(raw_data.nano_time_start), nsize);
+        memcpy(udp_data+ctsize+isosize+nsize, (raw_data.samples), ssize);
+
+        /* Set the end of the data portion */
+        wiced_packet_set_data_end( packet, (uint8_t*) udp_data + udptotal );
+
+        /* Send the UDP packet */
+        if ( wiced_udp_send( &udp_socket, &target_ip_addr, 50001, packet ) != WICED_SUCCESS )
+        {
+            WPRINT_APP_INFO( ("UDP packet send failed\n") );
+            wiced_packet_delete( packet ); /* Delete packet, since the send failed */
+            return WICED_ERROR;
+        }
+
+        wiced_watchdog_kick();
+    }
+    return WICED_SUCCESS;
+}
+
+wiced_result_t tx_udp_packet_big_endian()
+{
+    wiced_packet_t*          packet;
+    char*                    udp_data;
+    wasp_pckt_t              raw_data;
+    uint16_t                 available_data_length;
+    wiced_iso8601_time_t     iso8601_time;
+    int tx_count = 0;
+    uint16_t sample = 0;
+    int16_t nsegments = 2;
+    wiced_spi_message_segment_t message[1];
+    uint8_t txbuf[2], rxbuf[2];
+    txbuf[0] = 0xFF;
+    txbuf[1] = 0xFF;
+    message[0].tx_buffer = txbuf;
+    message[0].rx_buffer = rxbuf;
+    message[0].length = 2;
+
+    //the address will need to be changed for the udp sdp addr
     const wiced_ip_address_t INITIALISER_IPV4_ADDRESS( target_ip_addr, SERVER_IP_ADDRESS );
 
     while(1)

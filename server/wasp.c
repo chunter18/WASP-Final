@@ -46,12 +46,13 @@ int threads_running = 0;
 int thread_devices_found = 0;
 int device_err_flag = 0;
 char *cailbration_file_name;
+int print_verbose = 0;
 enum testmode{hibernate, initializing, testing}; //for printing the mode
 enum testmode mode;
-
+int sdp_exit = 0;
 char *datadir;
 
-typedef struct
+typedef struct //deprecated - remove
 {
 	uint16_t port;
 	int selected;
@@ -99,6 +100,11 @@ typedef struct
 	int sock_fd;
 }calib_thread_args_t;
 	
+typedef struct
+{
+	uint8_t endian; //0 = big, 1 = little
+	char server_ip_str[INET_ADDRSTRLEN];
+}wasp_sdp_pckt_t;
 
 //one interesting thing to add would be server discovery insteaed of using a fixed server ip in the board code
 int main(int argc, char *argv[])
@@ -120,6 +126,15 @@ int main(int argc, char *argv[])
 		//actual argument parsing
 		argp_parse (&argp, argc, argv, 0, 0, &arguments);
 		
+		int endian = test_endianness();
+		if(endian == WASP_BIG_ENDIAN)
+		{
+			printf("ERROR! This machine appears to be big endian.\n");
+			printf("The server was not deigned to translate from little to big endian and will not work.\n");
+			exit(-1);
+		}
+		
+		print_verbose = arguments.verbose;
 		int arglen = strlen(arguments.datadir);
 		
 		if(arglen > 100)
@@ -176,13 +191,6 @@ int main(int argc, char *argv[])
 		//NOTE: we can create files that are pure macs like 00:a0:50:c4:26:a1.csv on linux
 		
 		
-		//create a file to select the board to send data for graphing
-		//we could put this in the mode file, but we have to add a loop to count the lines or change the read structure
-		//FILE *graphfile;
-		//graphfile = fopen("graph", "wb");
-		//fprintf(graphfile, "%d", 0);
-		//fclose(graphfile);
-		
 		if(arguments.calibration == 1)
 		{
 			//create a calibration file for storing the calibration data returned by the boards
@@ -203,6 +211,9 @@ int main(int argc, char *argv[])
 		pthread_t print_thread;
 		pthread_create(&print_thread, NULL, print_data, NULL);
 		
+		//start the sdp listener - not enabled - need to debug calib, then remove the ip check and implement big endian stuff on client
+		//pthread_t sdp_thread;
+		//pthread_create(&sdp_thread, NULL, sdp_listener, &arguments.niface); //passing the niface for ip check
 		
 		//tcp server variables
 		//main tcp thread stuff
@@ -247,17 +258,6 @@ int main(int argc, char *argv[])
 		time_t timer_begin_time;
 		time_t timer_now;
 		
-		//get the host ip - evtually we will use for an sdp protocol
-		//the iface is set via arg for now with the default being eth0
-		struct ifreq ifr;
-		ifr.ifr_addr.sa_family = AF_INET;
-		strncpy(ifr.ifr_name, "eth0", IFNAMSIZ-1);
-		if( (ioctl(listenfd, SIOCGIFADDR, &ifr)) < 0)
-		{
-			perror("ioctl");
-			exit(-1);
-		}
-		//printf("server addr is %s\n", inet_ntoa(((struct sockaddr_in *)&ifr.ifr_addr)->sin_addr));
 		
 		while(1)
 		{
@@ -352,7 +352,15 @@ int main(int argc, char *argv[])
 					fprintf(stderr,"partial write");
 				
 				//need to spawn a thread to wait and recieve the calibration data.
-				close(connfd);	//close connection socket once write has finished
+				if(response.calibrate == 1)
+				{
+					t_args.sock_fd = connfd;
+					pthread_t calib;
+					pthread_create(&calib, NULL, rx_calib, &t_args); //create a thread to recieve the calib data
+					//thread will close the socket
+				}
+				else
+					close(connfd);	//close connection socket once write has finished
 			}
 			else
 			{
@@ -420,7 +428,10 @@ int main(int argc, char *argv[])
 		}
 		
 		//we got here, we are now ready to begin the test sequence
-		//TODO - only spawn extra threads if more than 1,2,3,4 devices connected
+		
+		//let the sdp thread finish
+		sdp_exit = 1;
+		//pthread_join(sdp_thread, NULL);
 		
 		//spawn the UDP threads to let them each spin up
 		pthread_t rec1, rec2, rec3, rec4; //4 threads for 4 cores
@@ -434,11 +445,6 @@ int main(int argc, char *argv[])
 		uint16_t port2 = 50002;
 		uint16_t  port3 = 50003;
 		uint16_t  port4 = 50004;
-		
-		//set these based on the mode file
-		//arg1.port = port1;
-		//arg1.selected = 1;
-		//arg1.selected_num = 1;
 		
 		pthread_create(&rec1, NULL, wasp_recieve, &port1);
 		if(n_connected >=2)
@@ -477,6 +483,140 @@ int main(int argc, char *argv[])
 		
 		pthread_join(tcp_async, NULL); //let the async server return so we know that the boards have been sent to sleep
 		return 0;
+}
+
+
+
+void *sdp_listener(void *arg)
+{
+	//this thread is repsonsible for sending out the endianness and server ip to wasp
+	//boards that connect to the network. by doing these things we can make a simple change
+	//to the wasp board that will allow for the server to be run on any machine, and the
+	//server machine doesnt have to have a static ip, meaning we can run on a different device
+	//at each run - this makes the server much easier to use hopefully
+	
+	//get the niface arg
+	char* niface = (char *)arg; //the port this thread is responsible for
+	
+	//we need 2 things - endianness and the server ip.
+	wasp_sdp_pckt_t packet;	
+	
+	//endianness test
+	//TODO - remove the exit for this in the main funct once fully implemented
+	int endian = test_endianness();
+	packet.endian = endian;
+	
+	int udp_sock;
+	int nBytes;
+	char buf[21];
+	struct sockaddr_in serverAddr, clientAddr;
+	socklen_t client_len;
+	struct sockaddr_storage serverStorage;
+	socklen_t addr_size, client_addr_size;
+	int i;
+	char addr_str[INET_ADDRSTRLEN];
+	
+	//standard socket intialization
+	serverAddr.sin_family = AF_INET;
+	serverAddr.sin_port = htons ((short)50006);
+	serverAddr.sin_addr.s_addr = htonl (INADDR_ANY);
+	memset ((char *)serverAddr.sin_zero, '\0', sizeof (serverAddr.sin_zero));  
+	memset(&clientAddr, '\0', sizeof(clientAddr));
+	addr_size = sizeof (struct sockaddr_in);
+	
+	if ((udp_sock = socket (AF_INET, SOCK_DGRAM, 0)) < 0)
+	{
+		perror("sdp socket");
+	}
+	if (bind (udp_sock, (struct sockaddr *)&serverAddr, sizeof (serverAddr)) != 0)
+	{
+		perror("sdp bind");
+		//return -1;
+	}
+	
+	struct ifreq ifr;
+	ifr.ifr_addr.sa_family = AF_INET;
+	strncpy(ifr.ifr_name, niface, IFNAMSIZ-1);
+	if( (ioctl(udp_sock, SIOCGIFADDR, &ifr)) < 0)
+	{
+		perror("ioctl");
+		exit(-1);
+	}
+	sprintf(packet.server_ip_str, "%s",  inet_ntoa(((struct sockaddr_in *)&ifr.ifr_addr)->sin_addr));
+	
+	//now we have our data, wait for a device to send the broadcast discovery message
+	char sendbuffer[sizeof(wasp_sdp_pckt_t)];
+	int ret;
+	memcpy(sendbuffer, &(packet.endian), 1);
+	memcpy(sendbuffer+1, (packet.server_ip_str), sizeof(packet.server_ip_str));
+	
+	struct timeval tv; 
+	fd_set rset;
+	FD_ZERO(&rset);
+	int ready;
+	int nfds = udp_sock + 1;
+	
+	while(1)
+	{
+		FD_SET(udp_sock, &rset); //select needs these to be re set each time
+		tv.tv_sec = 0;
+		tv.tv_usec = 1000; //check every 1 millisec
+		ready = select(nfds, &rset, NULL, NULL, &tv);
+		
+		if(ready)
+		{
+			nBytes = recvfrom (udp_sock, buf, sizeof(buf), 0, (struct sockaddr *)&clientAddr, &addr_size);	
+			ret = sendto (udp_sock, sendbuffer, sizeof(wasp_sdp_pckt_t), 0, (struct sockaddr *)&clientAddr, addr_size);
+		
+			if(ret == -1)
+			{
+				perror("sendto() sent a different number of bytes than expected");
+			}
+		}
+		
+		else
+		{
+			//pthread_testcancel(); 
+			if(sdp_exit == 1)
+				break;
+		}
+		
+		//no ack - device will retry if needed.
+	}
+	
+	close(udp_sock);
+	
+	return NULL;
+}
+
+void *rx_calib(void *arg)
+{
+	//printf("entered the calibration thread function\n");
+	
+	calib_thread_args_t args = *((calib_thread_args_t *)arg);
+	int fd = args.sock_fd;
+	char macaddrstr[18];
+	sprintf(macaddrstr, "%02x:%02x:%02x:%02x:%02x:%02x", args.mac[0],args.mac[1],args.mac[2],args.mac[3],args.mac[4],args.mac[5]);
+	printf("mac address is %s\n", macaddrstr);
+	float avg = 0;
+	char buff[sizeof(avg)];
+	
+	//wait to recieve the calib packet
+	//printf("now waiting for the calibration packet\n");
+	
+	//i think read is a blocking call - if not just use select??
+	read (fd, buff, sizeof(buff));
+	memcpy(&avg, buff, sizeof(avg));
+	//printf("got the packet, now writing to the file and closing up.\n");
+	
+	//write the result to the file
+	FILE *calibfile;
+	calibfile = fopen(cailbration_file_name, "a+b");
+	fprintf(calibfile, "%s, %f\n", macaddrstr,avg);
+	fclose(calibfile);
+	close(fd);
+	
+	return NULL;
 }
 
 void *tcp_async_command(void *arg)
@@ -833,12 +973,18 @@ void *print_data(void *arg) //numprint is num connected clients
 		printf("Devices ready to test = %-3d\n", n_ready);
 		num_rows++;
 		
-		//print some debug info (hopefully this wont stay after all the kinks get worked out)
-		printf("most recently assigned port: %d\n", ports[n_connected]);
-		num_rows++;
-		
-		printf("Threads per device: %3d, %3d, %3d, %3d\n", thread_devices_found, 0, 0, 0);
-		num_rows++;
+		if(print_verbose)
+		{
+			//this stuff is pretty useless, im not even sure if they work
+			//but here is where we would change the print level if it mattered
+			
+			//print some debug info (hopefully this wont stay after all the kinks get worked out)
+			printf("most recently assigned port: %d\n", ports[n_connected]);
+			num_rows++;
+			
+			printf("Threads per device: %3d, %3d, %3d, %3d\n", thread_devices_found, 0, 0, 0);
+			num_rows++;
+		}
 		
 		//header print
 		if(mode != testing)
@@ -1046,4 +1192,11 @@ static error_t parse_opt (int key, char *arg, struct argp_state *state)
 	}
 	
 	return 0;
+}
+
+int test_endianness(void) 
+{
+        int16_t word = 0x0001;
+        char *b = (char *)&word;
+        return (b[0] ? WASP_LITTLE_ENDIAN : WASP_BIG_ENDIAN);
 }

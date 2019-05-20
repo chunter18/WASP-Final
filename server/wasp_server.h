@@ -53,6 +53,8 @@ typedef struct
 
 #define WASP_TCP_SERVER_PORT 50005
 #define WASP_TCP_ASYNC_PORT 60005
+#define WASP_BIG_ENDIAN 0
+#define WASP_LITTLE_ENDIAN 1
 
 
 int check_update(int major, int minor);
@@ -67,3 +69,7 @@ void *wasp_recieve(void *arg);
 void *tcp_async_command(void *arg);
 static error_t parse_opt (int key, char *arg, struct argp_state *state);
 void disqualify(void);
+void *rx_calib(void *arg);
+int test_endianness(void);
+
+void *sdp_listener(void *arg);
