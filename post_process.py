@@ -4,9 +4,60 @@ import os
 import sys
 import time
 
+
+def parse_calib_file(calib_filename, data_filename):
+
+    #find the mac addr from the input (data) filename
+    #on windows/mac the : in the filename doesnt come through
+    #we need to find the delimiter in use
+    #possibilites '/', '_', '%3A', ':'
+
+    if data_filename.find('/') != -1:
+        delimiter = '/'
+    elif data_filename.find('_') != -1:
+        delimiter = '_'
+    elif data_filename.find(':') != -1:
+        delimiter = ':'
+    elif data_filename.find('%3A') != -1:
+        delimiter = '%3A'
+
+    #print(delimiter)
+
+    data_filename = data_filename.strip('.csv')
+    mac = data_filename.split(delimiter)
+    #print(mac)
+    
+
+    first = True
+    with open(calib_filename, 'r') as file:
+        for line in file:
+            if first:
+                first = False
+                continue
+            else:
+                contents = line.split(', ')
+                filemac = contents[0].split(':')
+                #print(filemac)
+                if filemac == mac:
+                    floatstr = contents[1]
+                    floatstr = floatstr.strip('\n')
+                    #print(floatstr)
+                    return float(floatstr)
+
+    #if we got here, we didnt get a match
+    printf('ERROR: device not found in calibration data')
+    printf('Please speicify a data file for a calibrated device')
+    sys.exit() 
+    
+
 def sample_to_voltage(sample, refV=3.3):
-    scaled = refV*1000000.0 #1mil
-    step_scaled = scaled/65536.0
+    #if the vref is 3.3, we can use the precalculeted number to save some time
+    if(refV == 3.3):
+        step_scaled = 50.35400390625
+    else:
+        scaled = refV*1000000.0 #1mil
+        step_scaled = scaled/65536.0
+    
     scaled_v = step_scaled*sample
     V = scaled_v / 1000000.0
     return V
@@ -20,9 +71,13 @@ def voltage_to_g(v, vref=3.3):
     #we are going to see that floating pint error - how to avoid?
 
     #v to mv - multiply by 1000
-    
-    midrange = vref/2
-    mv_per_g = 1000*(vref*(.004/5)) #proportion calc
+
+    if(vref == 3.3):
+        midrange = 1.65
+        mv_per_g = 2.64
+    else:
+        midrange = vref/2
+        mv_per_g = 1000*(vref*(.004/5)) #proportion calc
 
     if v == midrange:
         return 0
@@ -39,6 +94,7 @@ if __name__ == '__main__':
     
     parser = argparse.ArgumentParser(description='Turns WASP format csv into single col csv')
     parser.add_argument("input", help="input csv file", type=str)
+    parser.add_argument("-c", "--calibration",help="input calibration file", type=str)
     parser.add_argument("-o", "--out", help="filename to write output to, defaults to out.csv", type=str)
     parser.add_argument("-g", "--accel", help="write a acceleration column (assumes 3.3 vref)", action="store_true")
     parser.add_argument("-v", "--voltage", help="write a voltage column (assumes 3.3 vref)", action="store_true")
@@ -48,7 +104,17 @@ if __name__ == '__main__':
     exists = os.path.isfile(args.input)
     if not exists:
         print('input file doesnt exist')
+        sys.exit()
 
+    if args.calibration:
+        exists = os.path.isfile(args.calibration)
+        if not exists:
+            print('calibration file doesnt exist')
+            sys.exit()
+        else:
+            calib_val = parse_calib_file(args.calibration, args.input)
+            calib_val = round(calib_val)
+            
     if args.out:
         out_filename = args.out
     else:
@@ -67,6 +133,7 @@ if __name__ == '__main__':
     last = 0
     highcount = 0
     rate=1
+    midscale = (2**16)/2
                 
     
     first = True
@@ -76,7 +143,10 @@ if __name__ == '__main__':
             for i, row in enumerate(infile): #uses buffered io, reads one line at a time, good for big files
                 if first: #csv header
                     first = False
-                    outfile.write('sample')
+                    if args.calibration:
+                        outfile.write('calibrated sample')
+                    else:
+                        outfile.write('sample')
                     if args.voltage:
                        outfile.write(',voltage')
                     if args.accel:
@@ -132,6 +202,11 @@ if __name__ == '__main__':
                 #we should log the miss rates and stuff
 
                 for sample in samples:
+                    if args.calibration:
+                        #here we have specified we want to take the calib data into account
+                        #instead of writing
+                        offset = midscale - calib_val
+                        sample = sample + offset
                     outfile.write('{}'.format(sample))
                     if (args.voltage or args.accel):
                         voltage = sample_to_voltage(int(sample))
@@ -147,6 +222,7 @@ if __name__ == '__main__':
                 #print(samples)
                 #print(len(samples))
                 #print(i)
+                    
     endtime = time.time()
     if args.analyze:
         #note - currently we cant guaruntee the accuracy of these items as
