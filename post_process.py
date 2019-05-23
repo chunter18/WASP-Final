@@ -45,8 +45,8 @@ def parse_calib_file(calib_filename, data_filename):
                     return float(floatstr)
 
     #if we got here, we didnt get a match
-    printf('ERROR: device not found in calibration data')
-    printf('Please speicify a data file for a calibrated device')
+    print('ERROR: device not found in calibration data')
+    print('Please speicify a data file for a calibrated device')
     sys.exit() 
     
 
@@ -160,12 +160,14 @@ if __name__ == '__main__':
                 count = int(packet_count)
                
                 highcount = count
-
+                
                 #miss rate analysis
                 if last+1 != count:
-                    diff = count - last
+                    diff = count - last-1 
+                 
                     last = count
                     total_missed += diff
+                    
                     if diff > longest_missed:
                         longest_missed = diff
                 else:
@@ -206,7 +208,8 @@ if __name__ == '__main__':
                         #here we have specified we want to take the calib data into account
                         #instead of writing
                         offset = midscale - calib_val
-                        sample = sample + offset
+                        #print('offset=%d' % offset)
+                        sample = int(sample) + offset
                     outfile.write('{}'.format(sample))
                     if (args.voltage or args.accel):
                         voltage = sample_to_voltage(int(sample))
