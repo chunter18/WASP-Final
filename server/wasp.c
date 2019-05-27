@@ -134,6 +134,13 @@ int main(int argc, char *argv[])
 			exit(-1);
 		}
 		
+		int arch = sizeof(void *) * 8;
+		if(arch != 32)
+        {
+			fprintf(stderr, "WARNING! this is a 64 bit OS.\n");
+			fprintf(stderr, "WASP server is only guarunteed to work on 32 bit OS\n");
+        }
+		
 		print_verbose = arguments.verbose;
 		int arglen = strlen(arguments.datadir);
 		
@@ -1012,10 +1019,16 @@ void *print_data(void *arg) //numprint is num connected clients
 				//could be 6 or 7, both are pass
 				//diff is adc reset didnt get right arg back from the transfer
 				//we dont care as long as self test passed and high z got set.
-				printf("%-11s|", "PASS"); //st - 11 spaces
+				printf(GRN "%-11s|", "PASS" RESET); //st - 11 spaces
+				
+				//TODO - print this in green
 			}
 			else
-				printf("%-11s|", "FAIL"); //st - 11 spaces
+			{
+				//todo - print this in red
+				
+				printf(RED "%-11s|", "FAIL" RESET); //st - 11 spaces
+			}
 			
 			if(mode != testing)
 			{
