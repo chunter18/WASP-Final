@@ -126,6 +126,8 @@ int main(int argc, char *argv[])
 		//actual argument parsing
 		argp_parse (&argp, argc, argv, 0, 0, &arguments);
 		
+		//TODO - check if the niface value is an actual interface!!
+		
 		int endian = test_endianness();
 		if(endian == WASP_BIG_ENDIAN)
 		{
@@ -167,7 +169,7 @@ int main(int argc, char *argv[])
 		DIR* dir = opendir(datadir);
 		if(dir)
 		{
-			printf("directory %s already exists, server will use it\n", datadir);
+			//printf("directory %s already exists, server will use it\n", datadir);
 		}
 		else if(ENOENT == errno)
 		{
@@ -1019,7 +1021,8 @@ void *print_data(void *arg) //numprint is num connected clients
 				//could be 6 or 7, both are pass
 				//diff is adc reset didnt get right arg back from the transfer
 				//we dont care as long as self test passed and high z got set.
-				printf(GRN "%-11s|", "PASS" RESET); //st - 11 spaces
+				printf(GRN "%-11s", "PASS"); //st - 11 spaces
+				printf(RESET "|");
 				
 				//TODO - print this in green
 			}
@@ -1027,7 +1030,8 @@ void *print_data(void *arg) //numprint is num connected clients
 			{
 				//todo - print this in red
 				
-				printf(RED "%-11s|", "FAIL" RESET); //st - 11 spaces
+				printf(RED "%-11s", "FAIL"); //st - 11 spaces
+				printf(RESET "|");
 			}
 			
 			if(mode != testing)
